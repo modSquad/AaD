@@ -1,6 +1,0 @@
-\select@language {french}
-\contentsline {part}{I\hspace {1em}Programmation Lin\IeC {\'e}aire monocrit\IeC {\`e}re}{3}{part.1}
-\contentsline {section}{\numberline {1}Donn\IeC {\'e}es}{4}{section.1}
-\contentsline {subsection}{\numberline {1.1}Contraintes}{4}{subsection.1.1}
-\contentsline {section}{\numberline {2}Objectif : Comptable}{4}{section.2}
-\contentsline {subsection}{\numberline {2.1}Mod\IeC {\'e}lisation}{4}{subsection.2.1}
