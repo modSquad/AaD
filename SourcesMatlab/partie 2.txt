@@ -1,0 +1,6 @@
+partie 2:
+l'objectif est de trouver une solution de compromis entre les différents responsables
+pour trouver une telle solution on sera amenés à utilisé la programmation multicritère(PLM)
+auparavant dans la partie 1 on a trouvé un optimum pour chaque responsable indépendement, ce qui nous conduit à un point de mire, dans un monde parfait ce point de mire respecterait les contraintes de chaque responsable -> faut voir si c le cas ou pas
+-> si c le cas c bon on arrête
+-> si c pas le cas recherche du point d'optimum -> définition distance et recherche de min(d(point de mire et un point respectant contraintes)

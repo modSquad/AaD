@@ -46,6 +46,18 @@ L'ensemble de la chaine de production est régie par les contraintes suivantes
   \end{equation} 
 \end{itemize}
 
+\subsubsection{Modélisation sous forme matricielle}
+Pour donner au problème une forme standard, nous allons le modéliser par des inéquations et des produits matriciels.
+Les contraintes C0, C1 et C2 se traduisent trivialement de la manière suivante :
+\begin{equation}
+A.n \leq b
+\end{equation}
+Avec :
+\begin{pmatrix}
+A = ( -I \\ T^{t} \\ Q )
+b = ( 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 4800 \\ 4800 \\ 4800 \\ 4800 \\ 4800 \\ 4800 \\ 4800 \\ S^{t})
+\end{pmatrix}
+
 \input{comptable.tex}
 \input{responsable_atelier.tex}
 \input{responsable_stock.tex}

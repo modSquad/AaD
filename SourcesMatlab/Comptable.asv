@@ -1,0 +1,8 @@
+function [ output_args ] = Comptable( input_args )
+%COMPTABLE Summary of this function goes here
+%   Detailed explanation goes here
+FetchData();
+Earnings = zeros(1,6);
+Earnings = T * C' ./ 60 + 
+for i = Products,
+    Earnings
