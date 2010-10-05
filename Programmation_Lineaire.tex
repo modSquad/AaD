@@ -46,27 +46,4 @@ L'ensemble de la chaine de production est régie par les contraintes suivantes
   \end{equation} 
 \end{itemize}
 
-\section{Objectif : Comptable}
-Le comptable cherche à maximiser les bénefices sous les contraintes définies
-précedemment.
-
-\subsection{Modélisation}
-Soit $n_i$ le nombre de produit $i$ fabriqué. Le coup fixe de production
-n'influant pas sur notre décision, nous ne considérerons que le coût variable de
-production. Il est défini par la formule suivante:
-\begin{displaymath}
-CV(i) = n_i * \left (\sum_{j = 1}^{7} T_{i,j} .
-\frac{C_{i,j}}{60} + \sum_{k = 1}^{3} Q_{k,i} . A_{k} \right )
-\end{displaymath}
-~\\
-Le chiffre d'affaire par produit est :
-\begin{displaymath}
-CA(i) = n_i . V_i
-\end{displaymath}
-~\\
-Par conséquent le bénefice par produit se calcule de la manière suivante :
-\begin{eqnarray*}
-	B(i) &=& CA(i) - CV(i)\\
-	B(i) &=& n_i * \left (V_i - \sum_{j = 1}^{7} T_{i,j} . \frac{C_{i,j}}{60} +
-	\sum_{k = 1}^{3} Q_{k,i} . A_{k} \right )
-\end{eqnarray*}
+\input{comptable.tex}
