@@ -1,0 +1,32 @@
+\usepackage{algo}
+\usepackage{xcolor}
+\definecolor{bleugris}{rgb}{.2,.4,.5}
+
+\newcommand{\nTitle}[1]{%
+	\newpage 			%
+	\vspace*{\fill}		%
+	\begin{center}	%
+		\part{#1}		%
+	\end{center}
+	\vspace*{\fill}		%
+	\newpage			%
+}
+
+\newenvironment{nAbstract} 		%
+{ 								%
+	\newpage 					% 
+	\vspace*{\fill}				%
+	\begin{center}			 	%
+		\begin{abstract}		%
+}{								%
+		\end{abstract}			%
+	\end{center}				%
+	\vspace*{\fill}				%
+	\newpage					%
+}
+
+\newcommand{\nClass}[1]{{\color{bleugris}{\textsl{\textbf{#1}}}}}
+\newcommand{\nParameter}[1]{{\color{gray}{\textbf{#1}}}}
+\newcommand{\nMethod}[1]{{\color{gray}{\textbf{#1}}}}
+\newcommand{\nConstant}[1]{\texttt{\uppercase{#1}}}
+\newcommand{\nKeyword}[1]{\textsl{\textbf{#1}}}
