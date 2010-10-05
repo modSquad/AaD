@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.10.3)  5 OCT 2010 09:30
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.10.3)  5 OCT 2010 09:54
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -706,7 +706,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[3]) AED: lastpage setting LastPage 
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 26--29
+
+ []
+
+) AED: lastpage setting LastPage 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -722,10 +727,10 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: E638B57508BD45BF55055C2FA304C2EA;310.
  ) 
 Here is how much of TeX's memory you used:
- 7460 strings out of 493738
- 106439 string characters out of 3143023
- 205528 words of memory out of 3000000
- 10590 multiletter control sequences out of 15000+200000
+ 7466 strings out of 493738
+ 106487 string characters out of 3143023
+ 209642 words of memory out of 3000000
+ 10593 multiletter control sequences out of 15000+200000
  12621 words of font info for 47 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  32i,12n,43p,218b,391s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -741,10 +746,10 @@ cal/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/loca
 l/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/t
 exlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/te
 xlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (4 pages, 137182 bytes).
+Output written on main.pdf (4 pages, 138909 bytes).
 PDF statistics:
- 105 PDF objects out of 1000 (max. 8388607)
- 86 compressed objects within 1 object stream
- 11 named destinations out of 1000 (max. 500000)
+ 109 PDF objects out of 1000 (max. 8388607)
+ 90 compressed objects within 1 object stream
+ 14 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
