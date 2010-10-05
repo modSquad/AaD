@@ -4,10 +4,16 @@ Le responsable des stocks cherche à minimiser le nombre de de produits dans
 son stock sous les contraintes définies précedemment.
 
 \subsection{Modélisation}
-Soit $N$ le nombre de produits en stock (en unités de stock). $N$ est la somme
-des produits fabriqués à laquelle on soustrait la quantité de matières premières
-utilisée.
+Soit $Stock(n_{i})$ le nombre de produits en stock (en unités de stock). Cette
+fonction est la somme des produits fabriqués à laquelle on soustrait la quantité
+de matières premières utilisée.
 
+On a ainsi la formule suivante, où $n_{i}$ est la quantité de produit usiné
+(pour chaque produit $i$), et $Q_{i,j}$ est la quantité de matière première par
+produit pour chaque produit $i$ et chaque matière première $j$.
+ 
 \begin{equation}
-	N = \sum_{i = A}^{F}
-\end{equation} 
+	Stock(n_{i}) = \sum_{i} n_{i} - \sum_{i} n_{i} \times Q_{i,j}
+\end{equation}
+
+(formule pas encore valide) 
