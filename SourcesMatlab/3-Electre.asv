@@ -1,0 +1,15 @@
+function ORD = electre3 (J,p,s,v)
+
+if size(J,2) != size(p)
+error("Size doesn't match.");
+end if;
+    
+C = zeros(size(A,1));
+D = zeros(size(A,1));
+
+for i
+    for j
+        C(i,j) := (J(i,:)>=J(j,:)).*p;
+    end;
+end;      
+ 
