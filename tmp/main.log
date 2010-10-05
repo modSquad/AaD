@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.10.3)  5 OCT 2010 10:34
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.10.3)  5 OCT 2010 11:18
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -556,7 +556,11 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 ))
-(./main.aux)
+(./main.aux
+
+LaTeX Warning: Label `C0' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
@@ -725,33 +729,37 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[5])) AED: lastpage setting LastPage 
+[5]) (./responsable_commercial.tex
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[6]
+[6])) AED: lastpage setting LastPage 
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[7]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 34.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 34.
  (./main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 34.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 5F50A22074B54D89ED9AE05A582387EE;771.
 
 
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
+LaTeX Warning: There were multiply-defined labels.
 
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 58B87C3E6FE2B0531E96D442E97EC602;447
-(rerunfilecheck)             After:  44D9D42B366B996D6D31A4FA9F2FD717;508.
  ) 
 Here is how much of TeX's memory you used:
- 7481 strings out of 493738
- 106687 string characters out of 3143023
- 204645 words of memory out of 3000000
- 10596 multiletter control sequences out of 15000+200000
+ 7495 strings out of 493738
+ 106907 string characters out of 3143023
+ 205687 words of memory out of 3000000
+ 10601 multiletter control sequences out of 15000+200000
  12621 words of font info for 47 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  32i,12n,43p,218b,391s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -767,10 +775,10 @@ cal/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/loca
 l/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/t
 exlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/te
 xlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (6 pages, 142683 bytes).
+Output written on main.pdf (7 pages, 146606 bytes).
 PDF statistics:
- 133 PDF objects out of 1000 (max. 8388607)
- 111 compressed objects within 2 object streams
- 20 named destinations out of 1000 (max. 500000)
- 57 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 166 PDF objects out of 1000 (max. 8388607)
+ 143 compressed objects within 2 object streams
+ 26 named destinations out of 1000 (max. 500000)
+ 97 words of extra memory for PDF output out of 10000 (max. 10000000)
 

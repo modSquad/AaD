@@ -29,7 +29,13 @@ L'ensemble de la chaine de production est régie par les contraintes suivantes
 \begin{itemize}
   \item \textbf{Le nombre de produits usinés :} Il doit être non nul
   \begin{equation} 
-  	n_i \ge 0 \label{C0}
+  	\forall i, n_i \ge 0 \label{C0}
+  \end{equation}
+  
+  \item \textbf{La quantité de matières premières :} Elle doit
+  être positive.
+  \begin{equation} 
+  	\forall i, S_i \ge 0 \label{C0}
   \end{equation}
   
   \item \textbf{Le temps d'occupation de chaque machine $i$:} Il doit être
@@ -48,3 +54,4 @@ L'ensemble de la chaine de production est régie par les contraintes suivantes
 
 \input{comptable.tex}
 \input{responsable_atelier.tex}
+\input{responsable_commercial.tex}
