@@ -35,14 +35,14 @@ L'ensemble de la chaine de production est régie par les contraintes suivantes
   \item \textbf{Le temps d'occupation de chaque machine $i$:} Il doit être
   inférieur au temps de travail
   \begin{equation} 
-  	\sum_{j = A}^{F} T_{j,i} . n_j \leq 2.8.60.5 = 4800 \label{C1}
+  	\sum_{j = A}^{F} T_{j,i} \times n_j \leq 2.8.60.5 = 4800 \label{C1}
   \end{equation} 
   soit un temps de travail en deux huit, 5 jours par semaine.
   
   \item \textbf{L'utilisation de chaque matière première  $i$:} Elle doit être
   inférieure au stock
   \begin{equation} 
-  	\sum_{j = A}^{F} Q_{i,j} . n_j \leq S_i \label{C2}
+  	\sum_{j = A}^{F} Q_{i,j} \times n_j \leq S_i \label{C2}
   \end{equation} 
 \end{itemize}
 
@@ -53,11 +53,75 @@ Les contraintes C0, C1 et C2 se traduisent trivialement de la manière suivante 
 A.n \leq b
 \end{equation}
 Avec :
+\[
+A =
 \begin{pmatrix}
-A = ( -I \\ T^{t} \\ Q )
-b = ( 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 4800 \\ 4800 \\ 4800 \\ 4800 \\ 4800 \\ 4800 \\ 4800 \\ S^{t})
+\\
+\\
+\quad & \quad & -I & \quad & \quad \\
+\\
+\\
+\\
+\hline
+\\
+\\
+\\
+\quad & \quad & T^{t} & \quad & \quad \\
+\\
+\\
+\\
+\hline
+\\
+\quad & \quad & Q & \quad & \quad \\
+\\
 \end{pmatrix}
+, b = 
+\begin{pmatrix}
+0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\
+\hline
+4800 \\ 4800 \\ 4800 \\ 4800 \\ 4800 \\ 4800 \\ 4800 \\
+\hline
+\\
+S^{t} \\
+\\
+\end{pmatrix}
+\]
+
+Ce qui nous donne plus concrètement les matrices suivantes :
+\[
+A =
+\begin{pmatrix}
+   -1 &    0 &    0 &    0 &    0 &    0 \\
+    0 &   -1 &    0 &    0 &    0 &    0 \\
+    0 &    0 &   -1 &    0 &    0 &    0 \\
+    0 &    0 &    0 &   -1 &    0 &    0 \\
+    0 &    0 &    0 &    0 &   -1 &    0 \\
+    0 &    0 &    0 &    0 &    0 &   -1 \\
+\hline
+    8 &   15 &    0 &    5 &    0 &   10 \\
+    0 &    1 &    2 &   15 &    7 &   12 \\
+    8 &    1 &   11 &    0 &   10 &   25 \\
+    2 &   10 &    5 &    4 &   13 &    7 \\
+    5 &    0 &    0 &    0 &   10 &   25 \\
+    5 &    5 &    3 &   12 &    8 &    0 \\
+    5 &    3 &    5 &    8 &    0 &    0 \\
+\hline
+    1 &    2 &    1 &    5 &    0 &    2 \\
+    2 &    2 &    1 &    0 &    2 &    1 \\
+    1 &    0 &    3 &    2 &    2 &    0 \\
+\end{pmatrix}
+, b = 
+\begin{pmatrix}
+0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\
+\hline
+4800 \\ 4800 \\ 4800 \\ 4800 \\ 4800 \\ 4800 \\ 4800 \\
+\hline
+350 \\ 620 \\ 485
+\end{pmatrix}
+\]
 
 \input{comptable.tex}
 \input{responsable_atelier.tex}
 \input{responsable_stock.tex}
+
+
