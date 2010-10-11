@@ -4,16 +4,23 @@ Le responsable des stocks cherche à minimiser le nombre de de produits dans
 son stock sous les contraintes définies précedemment.
 
 \subsection{Modélisation}
-Soit $Stock(n_{i})$ le nombre de produits en stock (en unités de stock). Cette
-fonction est la somme des produits fabriqués à laquelle on soustrait la quantité
-de matières premières utilisée.
+Soit $\Delta Stock(n_{i})$ la variation du nombre d'unités en stock (l'unité est
+inconnue) en fonction du nombre de produits frabriqués. Cette fonction est la
+somme des produits fabriqués à laquelle on soustrait la quantité de matières
+premières utilisée.
+
+On suppose qu'un produit frabriqué correspond à une unité de stock.
 
 On a ainsi la formule suivante, où $n_{i}$ est la quantité de produit usiné
 (pour chaque produit $i$), et $Q_{i,j}$ est la quantité de matière première par
 produit pour chaque produit $i$ et chaque matière première $j$.
- 
+
 \begin{equation}
-	Stock(n_{i}) = \sum_{i} n_{i} - \sum_{i} n_{i} \times Q_{i,j}
+	\Delta Stock(n_{i}) = \sum_{i} n_{i} - n_{i} \times \sum_{j} Q_{i,j}
 \end{equation}
 
-(formule pas encore valide) 
+$\Delta Stock(n_{i})$ sera une fonction négative ou nulle : en effet, pour
+chaque unité de produit frabriqué, au moins une unité de matière première est
+consommée. En cherchant à minimiser cette expression, on minimise le stock.
+
+\subsection{Décisions}
