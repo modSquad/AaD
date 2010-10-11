@@ -1,0 +1,155 @@
+\part{Programmation linéaire multicritère}
+
+L'objectif est de trouver une solution de compromis entre les différents responsables.
+Pour trouver une telle solution nous serons amenés à utiliser la programmation multicritère (\emph{PLM}).
+Auparavant dans la partie 1, nous avons trouvé un optimum pour chaque
+responsable indépendam\-ment, ce qui nous conduit à un point de mire. Dans un
+monde parfait ce point de mire respecterait les contraintes de chaque
+responsable. Nous devons donc voir si telle est le cas. 
+
+
+\section{Recherche du point de départ}
+Si le point de mire est assez proche de l'ensemble des solutions acceptables,
+nous choisirons une solution proche de celle d'un responsable.
+
+Sinon, nous allons calculer la satisfaction de chaque objectif, sachant qu'une
+solution a été retenue. Nous devrons alors définir des métriques, correspondant
+à cette satisfaction. Par exemple, pour le comptable, cette satisfaction sera
+exprimée par le ratio du bénéfice obtenue dans un solution par rapport au
+bénéfice maximal.
+Ensuite, nous choisirons comme point de départ la solution qui offre le plus de
+satisfaction à tout le monde, par exemple en utilisant une moyenne pondérée,
+dont la pondération sera basée sur \emph{l'importance} de chaque critère.
+
+\section{Affinement de la solution}
+La solution trouvée précédemment peut sûrement être optimisée. Il peut être
+intéressant de perdre dans un critère, si cela nous fait gagner beaucoup dans
+un autre critère, d'autant plus si ce second critère est jugé plus
+\emph{intéressant} que le premier.
+
+\section{Métriques utilisées}
+Cette section décrit les métriques utilisées pour caractériser une solution, du
+point de vue d'un cadre de l'entreprise. Les solutions pourront ainsi être
+comparées entre elles.
+
+\paragraph{Comptable :}
+La métrique utilisée sera le pourcentage du bénéfice par rapport au bénéfice
+maximum :
+$$
+M_{Comptable} = \frac{B_{S}}{B_{max}} \times 100
+$$
+
+\paragraph{Responsable d'atelier}
+La métrique utilisée sera le pourcentage du nombre de produits fabriqués par
+rapport au nombre maximum :
+$$
+M_{Atelier} = \frac{N_{S}}{N_{max}} \times 100
+$$
+
+\paragraph{Responsable des stocks}
+La métrique utilisée sera la somme de la valeur du stock (le prix unitaire
+de chaque matière première avec la quantité de cette matière
+première en stock), plus le nombre de produit fabriqués (et donc en stock),
+multiplié par la quantité nécessaire de matière première pour fabriquer chaque
+produit. On peut imaginer que plus un produit nécessite de matière première, et
+plus cette matière première est chère, plus il sera cher à stocker.
+
+Il pourra être nécessaire de mettre cette métrique sous forme de pourcentage,
+pour en faciliter la lecture.
+
+$$
+\begin{cases}
+Q_MPi : \text{quantité de matière première } i.\\
+Pu_{Mpi} : \text{prix de la matière première } i.\\
+QNec_{i_{MPj}} : \text{quantité nécessaire de matière première $j$ pour le produit $i$.}
+\end{cases}
+$$
+
+$$
+M_{Stock} =  \left( 
+	     \sum_{i=1}^{3} Q_{MPi} \times Pu_{Mpi} + 
+	     \sum_{i=A}^{F} \sum_{j=1}^{3} QNec_{i_{MP1j}} \times Pu_{Mpj}
+	     \right)^{-1}
+$$
+
+\paragraph{Responsable commercial}
+La métrique utilisée sera l'écart par rapport à un équilibre parfait.
+Si autant de produit de la famille de produit 1 (comprenant les produits A, B
+et C) que de la famille 2 (comprenant les produits D, E et F), la métrique sera
+à 100\%.
+Si une seule famille de produit est fabriquée, la métrique devra valoir zéro.
+
+Si $F_1$ (respectivement $F_2$ est le nombre de produit de la famille 1
+(respectivement famille 2), la métrique sera :
+$$
+M_{Commercial} = \left( 1 - \frac{|F_1 - F_2|}{F_1 + F_2} \right) \times 100
+$$
+
+\section{Utilisation}
+Les résultats seront placés dans un tableau de ce type, qui qui permettra d'un
+seul coup d'œil de voir la meilleur des solutions.
+La colonne en rouge se lira par exemple : 
+\begin{center}
+«~En suivant la volonté du responsable d'atelier, le comptable aura une
+satisfaction de $n\%$~»
+\end{center}
+
+Un calcul de moyenne pourra être un premier indicateur de qualité d'une
+solution. Cette moyenne pourra être pondérée dans le future.
+
+\begin{table}[h!]
+    \begin{center}
+    \begin{tabular}{|l|c|c|c|c|c|}
+	\hline
+	\cellcolor[gray]{0.9} & Comptable& Atelier & Stock & Commercial &
+	Moyenne\\
+	\hline
+	Comptable & \cellcolor[gray]{0.9} 100\% & 2 & 3 & 4 & \\
+	\hline
+	Atelier & \cellcolor{red}1 & \cellcolor[gray]{0.9} 100\%  & 3 & 4 & \\
+	\hline
+	Stock & 1 & 2 & \cellcolor[gray]{0.9} 100\%  & 4 & \\
+	\hline 
+	Commercial & 1 & 2 & 3 & \cellcolor[gray]{0.9} 100\% & \\
+	\hline
+    \end{tabular}
+    \end{center}
+    \caption{Tableau de satisfaction des différents cadres de l'entreprise en
+	fonction de la solution retenue.}
+\end{table}
+
+
+
+\begin{comment}
+\begin{tabular}{|l||c|c|c|c||c|c|c|c||c|c|c|c||c|c|c|c|}
+\hline
+~ & \multicolumn{4}{|c||}{Comptable}
+  & \multicolumn{4}{|c||}{Atelier}
+  & \multicolumn{4}{|c||}{Stock}
+  & \multicolumn{4}{|c|}{Commercial} \\
+  \hline
+Comptable & 1 & 2 & 3 & 4
+	  & 1 & 2 & 3 & 4 
+	  & 1 & 2 & 3 & 4
+	  & 1 & 2 & 3 & 4 \\
+\hline
+Atelier & 1 & 2 & 3 & 4
+	  & 1 & 2 & 3 & 4 
+	  & 1 & 2 & 3 & 4
+	  & 1 & 2 & 3 & 4 \\
+\hline
+Stock & 1 & 2 & 3 & 4
+      & 1 & 2 & 3 & 4 
+      & 1 & 2 & 3 & 4
+      & 1 & 2 & 3 & 4 \\
+\hline 
+Commercial & 1 & 2 & 3 & 4
+	   & 1 & 2 & 3 & 4 
+	   & 1 & 2 & 3 & 4
+	   & 1 & 2 & 3 & 4 \\
+\hline
+
+
+\end{tabular}
+
+\end{comment}
