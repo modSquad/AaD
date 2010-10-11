@@ -20,7 +20,7 @@ CA(i) = n_i \times V_i
 Par conséquent le bénefice par produit se calcule de la manière suivante :
 \begin{eqnarray*}
 	B(i) &=& CA(i) - CV(i)\\
-	B(i) &=& n_i  \times \left (V_i - \sum_{j = 1}^{7} T_{i,j} \times \frac{C_{i,j}}{60} +
+		&=& n_i  \times \left (V_i - \sum_{j = 1}^{7} T_{i,j} \times \frac{C_{i,j}}{60} +
 	\sum_{k = 1}^{3} A_{k} \times Q_{k,i} \right )
 \end{eqnarray*}
 La matrice permettant de calculer, à partir du vecteur colonne $n$ du nombre de produits sortis de l'usine, le bénéfice d'\emph{Optim} est donc la suivante :
@@ -30,6 +30,11 @@ La matrice permettant de calculer, à partir du vecteur colonne $n$ du nombre de
 \end{eqnarray*}
 
 Remarquons qu'elle nous donne explicitement le bénéfice unitaire pour chaque produit. Le produit E est \emph{a priori} le plus intéressant.
+
+Nous chercherons à maximiser la fonction linéaire correspondant à cette matrice, donc (pour prendre une forme plus standard) à minimiser son opposé.
+
+
+\subsection{Décisions}
 
 En utilisant les outils Matlab (\texttt{linprog} en l'occurence, cf. annexes pour le code exact), on obtient le résulat suivant :
 \[
@@ -49,5 +54,5 @@ En utilisant les outils Matlab (\texttt{linprog} en l'occurence, cf. annexes pou
 
 Ce résultat était (en partie) prévisible à partir de la matrice $M_{B}$, puisque le produit E est le plus rentable. On devra donc, pour optimiser le bénéfice, en produire le plus possible, tout en utilisant intelligemment les matières premières et ressources humaines restantes pour maximiser le reste du bénéfice. Ainsi, d'après le résultat on préfère fabriquer le produit B au lieu du produit C car il est moins couteux en matière première MP3.
 
+Notons tout de même que ce résultat n'était pas si évident, puisqu'il prend également en compte l'utilisation des ressources (les machines), que nous avons ignorée dans le raisonnement \og intuitif \fg ci-dessus.
 
-\subsection{Décisions}

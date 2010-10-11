@@ -19,30 +19,31 @@ Soient :
 \subsection{Contraintes}
 Considérons :
 \begin{itemize}
-  \item 7 machines $j \in {1, 2, 3, 4, 5, 6 ,7}$
-  \item 6 produits $i \in {A, B, C, D, E, F}$
-  \item $n_i$ le nombre de d'unités $i$ fabriquées
+  \item 6 produits identifiés chacun par une lettre $i \in {A, B, C, D, E, F}$
+  \item 7 machines identifiée chacune par un nombre $j \in {1, 2, 3, 4, 5, 6 ,7}$
+  \item 3 matières premières identifiée chacune par un nombre $k \in {1, 2, 3}$
+  \item $n$, vecteur colonne du nombre d'unités fabriquées pour chaque produit
 \end{itemize}
 ~\\
 L'ensemble de la chaine de production est régie par les contraintes suivantes
 :\\
 \begin{itemize}
-  \item \textbf{Le nombre de produits usinés :} Il doit être non nul
+  \item \textbf{Le nombre de produits usinés de type $i$ :} Il doit être non nul
   \begin{equation} 
-  	n_i \ge 0 \label{C0}
+  	n_i \ge 0, \forall i \in {A, B, C, D, E, F} \label{C0}
   \end{equation}
   
   \item \textbf{Le temps d'occupation de chaque machine $i$:} Il doit être
   inférieur au temps de travail
   \begin{equation} 
-  	\sum_{j = A}^{F} T_{j,i} \times n_j \leq 2.8.60.5 = 4800 \label{C1}
+  	\sum_{j = A}^{F} T_{j,i} \times n_j \leq 2 \times 8 \times 60 \times 5 = 4800, \forall i \in {1, 2, 3, 4, 5, 6 ,7} \label{C1}
   \end{equation} 
   soit un temps de travail en deux huit, 5 jours par semaine.
   
   \item \textbf{L'utilisation de chaque matière première  $i$:} Elle doit être
   inférieure au stock
   \begin{equation} 
-  	\sum_{j = A}^{F} Q_{i,j} \times n_j \leq S_i \label{C2}
+  	\sum_{j = A}^{F} Q_{i,j} \times n_j \leq S_i, \forall i \in {1,2,3} \label{C2}
   \end{equation} 
 \end{itemize}
 
