@@ -3,6 +3,37 @@
 \usepackage[table]{xcolor}
 \definecolor{bleugris}{rgb}{.2,.4,.5}
 
+\definecolor{colKeys}{rgb}{0,0,1} 
+\definecolor{colIdentifier}{rgb}{0,0,0} 
+\definecolor{colComments}{rgb}{0,0.5,1} 
+\definecolor{colString}{rgb}{0.6,0.1,0.1} 
+
+\usepackage{listings}
+\lstset{%configuration de listings 
+float=hbp,% 
+basicstyle=\ttfamily\small, % 
+identifierstyle=\color{colIdentifier}, % 
+keywordstyle=\color{colKeys}, % 
+stringstyle=\color{colString}, % 
+commentstyle=\color{colComments}, % 
+columns=flexible, % 
+tabsize=2, % 
+frame=trBL, % 
+frameround=tttt, % 
+extendedchars=true, % 
+showspaces=false, % 
+showstringspaces=false, % 
+numbers=left, % 
+numberstyle=\tiny, % 
+breaklines=true, % 
+breakautoindent=true, % 
+captionpos=b,% 
+xrightmargin=-1cm, % 
+xleftmargin=-1cm 
+} 
+\lstset{language=octave} 
+\lstset{commentstyle=\textit}
+
 \newcommand{\nTitle}[1]{%
 	\newpage 			%
 	\vspace*{\fill}		%
