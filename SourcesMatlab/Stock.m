@@ -3,7 +3,7 @@ function [ OptProduction, MinStocks ] = Stock()
 FetchData;
 
 % Matrix corresponding to the stocks variation
-% Stocks = (eye(size(Q)) - Q)
+Stocks = ones(size(Q, 2), 1) *  (eye(size(Q)) - Q)
 
 % Optimization
 % prealloc

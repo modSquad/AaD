@@ -3,7 +3,8 @@
 Le responsable d'atelier cherche à maximiser le nombre d'unités (toutes
 catégories confondues) produites sous les contraintes définies précedemment.\\
 Autrement dit, seul la quantité de matières premières disponible et le temps
-maximum de travail limitera la production. 
+maximum de travail limitera la production. Il n'intervient donc pour le moment
+aucun notion de bénéfice.
 
 \subsection{Modélisation}
 Soit $N$ le nombre de produits fabriqués.
@@ -29,6 +30,11 @@ Instinctivement, on sait qu'il faudra fabriquer l'unité consommant le moins de
 \og temps machine\fg et le moins de matières premières. On peux donc penser que
 E et F seront les produits les plus fabriqués.\\
 En pratique, on obtient les résultats suivants :\\
+
+\begin{lstlisting}
+N = linprog(Units, InfEqConstraints, InfEqValues);
+\end{lstlisting}
+
 \begin{displaymath}
 M = \left(
 \begin{array}{c}
@@ -43,8 +49,11 @@ M = \left(
 \end{displaymath}
 ~\\
 \begin{center}
-\textsl{Ceci confirme bien les résultats attendus, c'est à dire qu'il faut
-donner la priorité aux produit consommant le moins de ressources.\\
-On remarque aussi qu'il est préférable d'abandonner \textsl{A} et \textsl{C} au
-profit d'autres produits.}
+\textbf{On peut donc, au maximum, fabriquer 376.8072 unités, tous produits
+confondus.}\\
+~\\
+\textsl{Ceci confirme bien les résultats attendus, c'est à dire
+qu'il faut donner la priorité aux produit consommant le moins de ressources.\\
+On remarque cependant qu'il est préférable d'abandonner \textsl{A} et \textsl{C}
+au profit d'autres produits.}
 \end{center}
