@@ -1,12 +1,12 @@
-function [ N ] = Comptable( )
+function [ N ] = Atelier( )
 
-FetchData();
+FetchData;
 
 % This is the matrix corresponding to the earnings function
-Products = [1; 1; 1; 1; 1; 1];
+Units = [1; 1; 1; 1; 1; 1];
 			
 % We'll try to maximize the function, so we minimize the opposite
-Products = -Products;
+Units = -Units;
 			
 % Optimisation
-N = linprog(Products, InfEqConstraints, InfEqValues);
+N = linprog(Units, InfEqConstraints, InfEqValues);

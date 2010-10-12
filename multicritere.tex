@@ -1,12 +1,11 @@
-\part{Programmation linéaire multicritère}
+\nTitle{Programmation linéaire multicritère}
 
 L'objectif est de trouver une solution de compromis entre les différents responsables.
 Pour trouver une telle solution nous serons amenés à utiliser la programmation multicritère (\emph{PLM}).
-Auparavant dans la partie 1, nous avons trouvé un optimum pour chaque
+Auparavant, dans la partie 1, nous avons trouvé un optimum pour chaque
 responsable indépendam\-ment, ce qui nous conduit à un point de mire. Dans un
-monde parfait ce point de mire respecterait les contraintes de chaque
+monde parfait, ce point de mire respecterait les contraintes de chaque
 responsable. Nous devons donc voir si telle est le cas. 
-
 
 \section{Recherche du point de départ}
 Si le point de mire est assez proche de l'ensemble des solutions acceptables,
@@ -59,9 +58,9 @@ pour en faciliter la lecture.
 
 $$
 \begin{cases}
-Q_MPi : \text{quantité de matière première } i \text{ dans le stock à un instant} t.\\
-Pu_{Mpi} : \text{prix de la matière première } i.\\
-QNec_{i_{MPj}} : \text{quantité nécessaire de matière première $j$ pour le produit $i$.}
+    Q_MPi : \text{quantité de matière première } i \text{ dans le stock à un instant} t.\\
+    Pu_{Mpi} : \text{prix de la matière première } i.\\
+    QNec_{i_{MPj}} : \text{quantité nécessaire de matière première $j$ pour le produit $i$.}
 \end{cases}
 $$
 
@@ -72,6 +71,11 @@ M_{Stock} =  \left(
 	     \right)^{-1}
 $$
 
+$$
+M_{Stock} = \left(
+	    1 - \frac{Q_{produit} + Q_{MP}}{Q_{MP_{Max}}} 
+	    \right) \times 100
+$$
 \paragraph{Responsable commercial}
 La métrique utilisée sera l'écart par rapport à un équilibre parfait.
 Si autant de produit de la famille de produit 1 (comprenant les produits A, B
@@ -120,7 +124,6 @@ solution. Cette moyenne pourra être pondérée dans le future.
 
 
 
-\begin{comment}
 \begin{tabular}{|l||c|c|c|c||c|c|c|c||c|c|c|c||c|c|c|c|}
 \hline
 ~ & \multicolumn{4}{|c||}{Comptable}
@@ -152,4 +155,3 @@ Commercial & 1 & 2 & 3 & 4
 
 \end{tabular}
 
-\end{comment}
