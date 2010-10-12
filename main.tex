@@ -1,38 +1,38 @@
-\documentclass[a4paper,11pt]{article}
-\usepackage[english, french]{babel}
-\usepackage[utf8]{inputenc}
-
-\usepackage{graphicx}
-\usepackage{fancyhdr}
-\usepackage{lastpage}
-\usepackage{amsmath}
-\usepackage{xspace}
-
-\usepackage{hyperref}
-
-\usepackage[top=20mm, bottom=20mm, left=25mm, right=25mm]{geometry}
-
-\pagestyle{fancy}
+\documentclass[a4paper,11pt]{article} 
+\input{nation}
  
 %opening
-\title{Projet d'aide à la décision}
-\author{Paul \textsc{Adenot}, Etienne \textsc{Brodu}, Maxime \textsc{Gaudin},
-Monica \textsc{Golumbeanu}, Yoann \textsc{Rodière}}
+\title{\textbf{Projet d'aide à la décision}}
+\author{Paul \textsc{Adenot}, Etienne \textsc{Brodu}, Maxime \textsc{Gaudin},\\
+Monica \textsc{Golumbeanu}, Nor \textsc{El Malki}, Yoann \textsc{Rodière}}
 \lhead{Hexanome 4203}
 \cfoot{\thepage\ of \pageref{LastPage}}
 
-\input{nation}
+
 
 \begin{document}
 \maketitle
 \tableofcontents 
 
 \begin{nAbstract}
-
+L'objet de ce TP est de trouver une stratégie de production, menant à un
+contentement optimal des différent acteurs :
+\begin{itemize}
+  \item Le comptable
+  \item Le responsable des ateliers
+  \item Le responsable des stocks
+  \item Le responsable commercial
+\end{itemize}
+~\\
+La démarche sera quant à elle incrémentale puisque nous fournirons dans un
+premier temps des optimum très locaux, respectant un nombre limités de
+contraintes et de critères, puis nous combinerons ces différents résultat afin
+de converger vers une solution prenant en compte l'intérêt de chacun.
 \end{nAbstract}
 
 \input{Programmation_Lineaire.tex}
 \input{multicritere.tex}
+
 \input{annexe.tex}
 
 \end{document}
