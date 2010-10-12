@@ -39,7 +39,7 @@ Resultat(3,4) = (1 - abs(sum(QttProdMaxStock(1:3)) - sum(QttProdMaxStock(4:6))) 
 
 
 %% Solution du responsable commercial par rapport aux autres responsables.
-QttProduitEquilibre = [1,2,3,4,5,6];
+QttProduitEquilibre = [0.888810041865781 114.910246268340 60.2321120650158 0.253790723745169 148.743054004414 27.0343236470630];
 % Comptable
 Resultat(4,1) = ((QttProduitEquilibre * PuProduit') / BeneficeMax) * 100;
 % Atelier
