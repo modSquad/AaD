@@ -9,4 +9,4 @@ Products = [1; 1; 1; 1; 1; 1];
 Products = -Products;
 			
 % Optimisation
-N = linprog(Products, InfEqConstraints, InfEqValues);
+N = linprog(Units, InfEqConstraints, InfEqValues);
