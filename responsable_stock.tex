@@ -4,30 +4,32 @@ Le responsable des stocks cherche à minimiser le nombre de de produits dans
 son stock sous les contraintes définies précedemment.
 
 \subsection{Modélisation}
-Soit $\Delta Stock(n_{i})$ la variation du nombre d'unités en stock (l'unité est
-inconnue) en fonction du nombre de produits frabriqués. Cette fonction est la
-somme des produits fabriqués à laquelle on soustrait la quantité de matières
-premières utilisée.
+Soit $Stock(n_{i})$ le nombre d'unités de stock nécessaires pour stocker les
+produits fabriqués et la matière première nécessaire. Cette fonction est la
+somme des produits fabriqués à laquelle on ajoute la quantité de matières
+premières nécessaire à la fabrication.
 
 On suppose qu'un produit frabriqué correspond à une unité de stock.
 
 On a ainsi la formule suivante, où $n_{i}$ est la quantité de produit usiné
-(pour chaque produit $i$), et $Q_{i,j}$ est la quantité de matière première par
-produit pour chaque produit $i$ et chaque matière première $j$.
+(pour chaque produit $i$), et $Q_{j,i}$ est la quantité de matière première
+par produit pour chaque produit $i$ et chaque matière première $j$.
 
 \begin{equation}
-	\Delta Stock(n_{i}) = \sum_{i} (n_{i} - n_{i} \times \sum_{j} Q_{j,i})
+	Stock(n) = \sum_{i} (n_{i} + n_{i} \times \sum_{j} Q_{j,i})
 \end{equation}
 
-$\Delta Stock(n_{i})$ sera une fonction négative ou nulle : en effet, pour
-chaque unité de produit frabriqué, au moins une unité de matière première est
-consommée. En cherchant à minimiser cette expression, on minimise le stock.
+La représentation matricielle de cette fonction sera alors :
 
-On obtient la représentation matricielle suivante :
 \begin{equation}
-	M_{S} = (1, \ldots, 1) \times (Id - Q)
+	M_S = \begin{pmatrix}
+		1 & 1 & 1 & 1 & 1 & 1
+	\end{pmatrix} + (
+	\begin{pmatrix}
+		1 & 1 & 1
+	\end{pmatrix}
+	\times Q)
 \end{equation}
-(Application numérique\ldots)
 
 \subsection{Décisions}
 $\Delta Stock(n_{i})$ est minimum quand le maximum d'unités de matières
