@@ -16,13 +16,17 @@ On a ainsi la formule suivante, où $n_{i}$ est la quantité de produit usiné
 produit pour chaque produit $i$ et chaque matière première $j$.
 
 \begin{equation}
-	\Delta Stock(n_{i}) = \sum_{i} n_{i} - n_{i} \times \sum_{j} Q_{i,j}
+	\Delta Stock(n_{i}) = \sum_{i} (n_{i} - n_{i} \times \sum_{j} Q_{j,i})
 \end{equation}
 
 $\Delta Stock(n_{i})$ sera une fonction négative ou nulle : en effet, pour
 chaque unité de produit frabriqué, au moins une unité de matière première est
 consommée. En cherchant à minimiser cette expression, on minimise le stock.
 
+On obtient la représentation matricielle suivante :
+\begin{equation}
+	M_{S} = Id - Q
+\end{equation}
 (Application numérique\ldots)
 
 \subsection{Décisions}
