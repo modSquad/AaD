@@ -27,3 +27,4 @@ tmp/main.log
 *.out
 *.synctex.gz
 .*.swp
+*~
