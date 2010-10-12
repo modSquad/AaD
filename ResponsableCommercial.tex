@@ -1,0 +1,73 @@
+%%This is a very basic article template.
+%%There is just one section and two subsections.
+
+
+
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\begin{document}
+
+\section{Objectif : Responsable commercial}
+Le responsable commercial cherche à équilibrer le nombre
+d'unités de ${A, B, C}$ (famille 1) et ${D, E, F}$ (famille 2) afin que ces deux
+familles contiennent le même nombre d'unités (à $\epsilon$ unité(s) prés).
+~\\
+En prennant en compte les contraintes définies avant et en ajoutant une nouvelle
+contrainte d'équilibre entre les deux familles de produits on se rend compte que
+la meilleure solution sera de ne rien produire. C'est solution n'est pas
+avantageuse. On introduit par conéquent une autre contrainte - nous allons 
+essayer d'équilibrer les familles de produits tout en conservant un bénéfice maximal.
+
+\subsection{Modélisation}
+Soient :
+ \begin{itemize}
+%   \item $N_1$ le nombre de produits de la famille 1 fabriquÃ©s.
+%   \item $N_2$ le nombre de produits de la famille 2 fabriquÃ©s.
+	\item $n_A$ le nombre de produits A usinés. 
+	\item $n_B$ le nombre de produits B usinés. 
+	\item $n_C$ le nombre de produits C usinés. 
+	\item $n_D$ le nombre de produits D usinés. 
+	\item $n_E$ le nombre de produits E usinés. 
+	\item $n_F$ le nombre de produits F usinés. 
+\end{itemize}
+~\\
+Pour étudier l'équilibre entre les deux familles des produits on définira une
+fonction qui sera égale à la différence entre les quantités des produits
+provenant des deux familles, soit: 
+
+\begin{displaymath}
+F = (n_A+n_B+n_C)-(n_D+n_E+n_F)
+\end{displaymath}
+
+La contrainte sur l'équilibre va se traduire par l'essai de minimiser la
+fonction F, c'est à dire:
+\begin{eqnarray*}
+	|F| &\leq& \epsilon\\
+	\Leftrightarrow -\epsilon \leq F &\leq& \epsilon\\
+	\Leftrightarrow -\epsilon \leq (n_A+n_B+n_C)-(n_D+n_E+n_F)
+	&\leq& \epsilon\\
+	Avec& \epsilon \rightarrow 0.\\
+\end{eqnarray*} 
+~\\
+Ensuite on va essayer de maximiser le bénéfice obtenu. 
+On va procéder de la manière suivante:  
+\begin{itemize}
+   \item Nous fixons un certain bénéfice à atteindre, par
+	     exemple 60\% du bénéfice maximal.
+   \item Pour le bénéfice choisi, nous essayons de minimiser F. 
+\end{itemize}
+~\\
+En répétant cette démarche un certain nombre de fois, nous pouvons tracer une
+courbe représentant la valeur de F en fonction du bénéfice atteint. 
+L'interprétation de cette courbe nous permettra de trouver le meilleur
+compromis entre nos deux objectifs.
+
+\subsection{Décisions}
+
+\subsection{Another subtitle}
+
+More plain text.
+
+
+\end{document}

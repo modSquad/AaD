@@ -1,8 +1,8 @@
-function [ N ] = Comptable( )
+function [ OptProduction, MaxEarnings ] = Comptable( )
 %COMPTABLE Summary of this function goes here
 %   Detailed explanation goes here
 
-FetchData();
+FetchData;
 
 % This is the matrix corresponding to the earnings function
 Earnings = (V - ( (T * C' ./ 60)' + (A * Q) ))
@@ -11,4 +11,9 @@ Earnings = (V - ( (T * C' ./ 60)' + (A * Q) ))
 Earnings = -Earnings;
 
 % Optimisation
-N = linprog(Earnings, InfEqConstraints, InfEqValues);
+OptProduction = zeros(size(Earnings,2),1)
+OptProduction = linprog(Earnings, InfEqConstraints, InfEqValues);
+
+% Effective earnings
+MaxEarnings = -Earnings * OptProduction;
+
