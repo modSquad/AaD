@@ -4,34 +4,56 @@ Le responsable des stocks cherche à minimiser le nombre de de produits dans
 son stock sous les contraintes définies précedemment.
 
 \subsection{Modélisation}
-Soit $\Delta Stock(n_{i})$ la variation du nombre d'unités en stock (l'unité est
-inconnue) en fonction du nombre de produits frabriqués. Cette fonction est la
-somme des produits fabriqués à laquelle on soustrait la quantité de matières
-premières utilisée.
+Soit $Stock(n_{i})$ le nombre d'unités de stock nécessaires pour stocker les
+produits fabriqués et la matière première nécessaire. Cette fonction est la
+somme des produits fabriqués à laquelle on ajoute la quantité de matières
+premières nécessaire à la fabrication.
 
 On suppose qu'un produit frabriqué correspond à une unité de stock.
 
 On a ainsi la formule suivante, où $n_{i}$ est la quantité de produit usiné
-(pour chaque produit $i$), et $Q_{i,j}$ est la quantité de matière première par
-produit pour chaque produit $i$ et chaque matière première $j$.
+(pour chaque produit $i$), et $Q_{j,i}$ est la quantité de matière première
+par produit pour chaque produit $i$ et chaque matière première $j$.
 
 \begin{equation}
-	\Delta Stock(n_{i}) = \sum_{i} (n_{i} - n_{i} \times \sum_{j} Q_{j,i})
+	Stock(n) = \sum_{i} (n_{i} + n_{i} \times \sum_{j} Q_{j,i})
 \end{equation}
 
-$\Delta Stock(n_{i})$ sera une fonction négative ou nulle : en effet, pour
-chaque unité de produit frabriqué, au moins une unité de matière première est
-consommée. En cherchant à minimiser cette expression, on minimise le stock.
+La représentation matricielle de cette fonction sera alors :
 
-On obtient la représentation matricielle suivante :
 \begin{equation}
-	M_{S} = (1, \ldots, 1) \times (Id - Q)
+	M_S = \begin{pmatrix}
+		1 & 1 & 1 & 1 & 1 & 1
+	\end{pmatrix} + (
+	\begin{pmatrix}
+		1 & 1 & 1
+	\end{pmatrix}
+	\times Q)
 \end{equation}
-(Application numérique\ldots)
+
+Le résultat trivial est :
+\begin{pmatrix}
+	0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0
+\end{pmatrix}
+
+En effet, en l'absence de production, aucun stock n'est nécessaire. Ce résultat
+n'est pas satisfaisant. Nous allons donc nous intéresser à un second critère :
+les bénéfices de l'entreprise. Pour ce faire, nous allons nous intéresser aux
+valeurs obtenues en imposant un minimum de bénéfices. En réalisant les calculs
+sur plusieurs échelons, on obtient un résultat linéaire par morceaux. Le
+raisonement adopté est similaire à celui développé dans la section
+\ref{sec:monocrit_resp_com}.
+
+\begin{figure}[h!]
+	\includegraphics[width=\textwidth]{SourcesMatlab/graphe_resp_stocks.png}
+	\caption{Graphe de l'évolution des stocks en fonction du bénéfice}
+\end{figure}
+
 
 \subsection{Décisions}
-$\Delta Stock(n_{i})$ est minimum quand le maximum d'unités de matières
-premières est écoulé. Ainsi, la combinaison optimale favorise la production des
-produits consommant le plus de matières premières de manière à en éliminer le
-plus (il vaut mieux par exemple fabriquer deux produits consommant 6 unités de
-matières premières qu'un seul en consommant 4).
+De nombreuses valeurs sont équivalentes et ne peuvent être départagées selon des
+critères mathématiques. Les choix possibles se situent dans le deuxième morceau
+de courbe : en dessous, les bénéfices sont trop bas, au dessus, les besoins de
+stockage augmentent beaucoup plus que les bénéfices.
+
+On a donc une valeur comprise entre 50\% et 98\% de bénéfices.
