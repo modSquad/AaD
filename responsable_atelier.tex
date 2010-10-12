@@ -1,13 +1,50 @@
 \newpage
 \section{Objectif : Responsable d'atelier}
 Le responsable d'atelier cherche à maximiser le nombre d'unités (toutes
-catégories confondues) produites sous les contraintes définies précedemment.
+catégories confondues) produites sous les contraintes définies précedemment.\\
+Autrement dit, seul la quantité de matières premières disponible et le temps
+maximum de travail limitera la production. 
 
 \subsection{Modélisation}
 Soit $N$ le nombre de produits fabriqués.
 
 \begin{equation}
-	N = \sum_{i = A}^{F}
+	N = \sum_{i = A}^{F} n_i
 \end{equation} 
+~\\
+Par concéquent, nous obtenons la matrice suivante, qui représente la somme des
+différents produits :
+\begin{displaymath}
+M = \left(
+\begin{array}{cccccc}
+1 & 1 & 1 & 1 & 1 & 1\\
+\end{array}
+\right)
+\end{displaymath}
+~\\
+La matrice des contraintes quant à elle, n'est pas modifiée.
 
 \subsection{Décisions}
+Instinctivement, on sait qu'il faudra fabriquer l'unité consommant le moins de
+\og temps machine\fg et le moins de matières premières. On peux donc penser que
+E et F seront les produits les plus fabriqués.\\
+En pratique, on obtient les résultats suivants :\\
+\begin{displaymath}
+M = \left(
+\begin{array}{c}
+0\\
+56.732\\
+38.6928\\
+0\\
+182.4608\\
+98.9216 
+\end{array}
+\right)
+\end{displaymath}
+~\\
+\begin{center}
+\textsl{Ceci confirme bien les résultats attendus, c'est à dire qu'il faut
+donner la priorité aux produit consommant le moins de ressources.\\
+On remarque aussi qu'il est préférable d'abandonner \textsl{A} et \textsl{C} au
+profit d'autres produits.}
+\end{center}

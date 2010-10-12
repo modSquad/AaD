@@ -3,7 +3,8 @@
 Le responsable commercial cherche à équilibrer le nombre
 d'unités de ${A, B, C}$ (famille 1) et ${D, E, F}$ (famille 2) afin que ces deux
 familles contiennent le même nombre d'unités ( à $\epsilon$
-unité(s) près).
+unité(s) près).\\
+Autrement dit, l'écart entre le nombre d'unités produite pour la famille A et la famille B doit être inférieur à un seuil $\epsilon$.
 
 \subsection{Modélisation}
 Soient :
@@ -18,5 +19,51 @@ Soient :
 	\Leftrightarrow -\epsilon \leq \sum_{i = A}^{C} n_i - \sum_{j = D}^{F} n_j
 	&\leq& \epsilon\\
 \end{eqnarray*} 
+Par concéquent, c'est cette nouvelle contrainte qui, venant s'ajouter aux
+contraintes précédentes, va permettre de calculer le nombre d'unités A, B, C,
+D, E, et F à fabriquer afin d'équilibrer les deux familles.\\
+~\\
+Nous obtenons la matrice suivante :
+\begin{displaymath}
+M = \left(
+\begin{array}{cccccc}
+1 & 1 & 1 & 1 & 1 & 1\\
+\end{array}
+\right)
+\end{displaymath}
+La matrice, très simple, représente la somme des différents produits.\\
+La matrice des contraintes devient quant à elle :
+INSÉRER MATRICE A MODIFIEE
 
 \subsection{Décisions}
+
+\subsection{Interprétation}
+Evidemment, toutes les solutions triviales du type :
+\begin{displaymath}
+M_p = \left(
+\begin{array}{cccccc}
+N \pm \epsilon & N \pm \epsilon & N \pm \epsilon & N & N & N\\
+\end{array}
+\right)
+\end{displaymath}
+ou encore 
+\begin{displaymath}
+M_p = \left(
+\begin{array}{cccccc}
+N & N & N & N \pm \epsilon & N \pm \epsilon & N \pm \epsilon\\
+\end{array}
+\right)
+\end{displaymath}
+\begin{center}
+\textsl{Où $M_p$ est la matrice du nombre de produit, et $N \in \mathbbm{N}$}
+\end{center}
+sont des solutions \emph{valables}.\\
+~\\
+Ceci met en évidence qu'avec les critères définis plus haut, il n'y a pas de
+solution plus \og valable\fg ~qu'une autre. Par concéquent nous pouvons :
+\begin{itemize}
+  \item Choisir une solution au hasard
+  \item Augmenter le nombre de critère et notamment ceux en rapport avec les
+  stocks disponibles, le prix des matières premières, ou encore le temps
+  d'usinage nécessaire.
+\end{itemize}
