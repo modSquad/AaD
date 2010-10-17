@@ -1,4 +1,4 @@
-function [S,C,D] = electre3 (J,w,s,v)
+function [S1,S2,C,D] = electre3 (J,w,s1,s2,v)
 % J = m x n judgment matrix
 % w = n weight
 
@@ -31,20 +31,32 @@ for i = 1:n
 end;
 
 % EVALUATE OUTCLASS MATRIX
-S = ((C > s).*(D <= v));
+S1 = ((C > s1).*(D <= v));
+S2 = ((C > s2).*(D <= v));
 
 % DRAW ORDER GRAPH
 fid = fopen(graphname, 'w');
 fprintf(fid, 'digraph G {\n');
-[row, col] = find(S);
-k = size(row,1);
-for i = 1:k
-    fprintf(fid, [char(64+row(i)), ' -> ', char(64+col(i)), ';\n']);
-end;
-fprintf(fid, '\n');
+[row1, col1] = find(S1);
+[row2, col2] = find(S2);
+
 for i = 1:n
     fprintf(fid, [char(64+i), ';\n']);
 end;
+fprintf(fid, '\n');
+
+k = size(row1,1);
+for i = 1:k
+    fprintf(fid, [char(64+row1(i)), ' -> ', char(64+col1(i)), ';\n']);
+end;
+fprintf(fid, '\n');
+
+k = size(row2,1);
+for i = 1:k
+    fprintf(fid, [char(64+row2(i)), ' -> ', char(64+col2(i)), '[style = "dashed"];\n']);
+end;
+fprintf(fid, '\n');
+
 fprintf(fid, '}');
 fclose(fid);
 % ASCENDING ORDER

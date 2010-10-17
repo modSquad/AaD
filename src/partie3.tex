@@ -39,10 +39,13 @@ S = ((C > s).*(D <= v));
 Un graph est ensuite généré à partir de cette matrice.
 On obtient ainsi rapidement la meilleurs solution en tête de graphe, et grace à la méthode du classement et du classement inverse, on peut obtenir l'ordre des solutions.
 
-\Subsection{Solution proposé}
+\subsection{Solution proposé}
 
 Dans un premier temps, sans prendre en compte l'étude des 2 première parties, la meilleur solution, serait la solution A.
 
-TODO graph solution1
+\begin{figure}
+\includegraphics{../SourcesMatlab/electre3-1.pdf}
+\caption{Graphe des surclassement sans prise en compte des poids de chaque critère}
+\end{figure}
 
 Dans un second temps, en prenant en compte les poids apporté par l'étude des 2 première parties.

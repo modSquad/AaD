@@ -1,0 +1,35 @@
+digraph G {
+A;
+B;
+C;
+D;
+E;
+F;
+G;
+H;
+
+E -> B;
+G -> B;
+A -> C;
+D -> C;
+E -> C;
+F -> C;
+H -> C;
+A -> D;
+H -> D;
+A -> E;
+G -> E;
+A -> F;
+C -> F;
+D -> F;
+H -> F;
+A -> G;
+E -> G;
+A -> H;
+D -> H;
+
+H -> C[style = "dashed"];
+H -> F[style = "dashed"];
+E -> G[style = "dashed"];
+
+}
