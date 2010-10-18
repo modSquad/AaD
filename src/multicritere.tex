@@ -98,27 +98,30 @@ La colonne en rouge se lira par exemple :
 satisfaction de $96.5498\%$~»
 \end{center}
 
-\begin{table}[!ht]
+\begin{minipage}{\linewidth}
     \begin{center}
     \begin{tabular}{|l|c|c|c|c|}
 \hline
 \cellcolor[gray]{0.9} & Comptable& Atelier & Stock & Commercial  \\
 \hline
-Comptable			& \cellcolor[gray]{0.9} 100\% & 94.7678\% & 40.0930\%			  & 11.4302\% \\
+Comptable  & 100.000\% & 94.7678\% & 88.9030\% & 11.4302\% \\
 \hline
-Atelier				& \cellcolor{red}   96.5498\% &
-\cellcolor[gray]{0.9} 100\% & 32.2825\%			  & 47.9244\% \\
+Atelier	& 96.5498\% & 100.000\% & 77.7846\% & 50.6491\% \\
 \hline
-Stock			        & 74.1546\%		      & 70.8003\%		    & \cellcolor[gray]{0.9} 100\% & 25.2908\% \\
+Stock	& 74.1546\% & 70.8003\% & 99.9796\% & 0.00000\% \\
 \hline
-Commercial			& 81.8654\%		      & 93.4330\%
-& 30.6085\%                   & \cellcolor[gray]{0.9} 100\% \\
+Commercial & 81.8653\% & 93.4330\% & 80.2626\% & 100.000\% \\
 \hline
     \end{tabular}
     \end{center}
-    \caption{Tableau de satisfaction des différents cadres de l'entreprise en
-	fonction de la solution retenue.}
-\end{table}
+    Tableau de satisfaction des différents cadres de l'entreprise en
+	fonction de la solution retenue.
+\end{minipage}
+
+  
+  
+  
+
 
 On voit bien que le point de mire est éloigné de l'ensemble des solutions
 acceptables : aucune solution ne semble satisfaire tous les responsables.
@@ -168,5 +171,8 @@ du comptable (celle qui maximise le bénéfice), en essayant d'améliorer la
 métrique du commercial, tout en restant dans le domaines des solutions possibles
 au vu des contraintes. Il faudra toutefois tâcher de ne pas trop dégrader les
 autres critères.
+
+
+
 \subsection{Résultats}
 Présenter un tableau.

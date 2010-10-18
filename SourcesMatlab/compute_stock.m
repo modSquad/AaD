@@ -1,4 +1,5 @@
 function result = compute_stock(input)
+
     remaining = get_remaining_stock(input);
     
     input = sum(input) + sum(remaining);

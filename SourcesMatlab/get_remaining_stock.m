@@ -5,13 +5,10 @@ MatPremParProduit = [
  2  2   1   0   2   1
  1  0   3   2   2   0
 ];
+
 %Quantité max de matière première par produit
-MatPremMax = [
-    350 620 485
-];
+MatPremMax = [350 620 485];
 
-produits
-
-result = MatPremMax - produits * MatPremParProduit';
+result = MatPremParProduit * produits;
 
 end
