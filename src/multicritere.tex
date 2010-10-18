@@ -104,36 +104,64 @@ satisfaction de $96.5498\%$~»
 \hline
 \cellcolor[gray]{0.9} & Comptable& Atelier & Stock & Commercial  \\
 \hline
-Comptable & \cellcolor[gray]{0.9} 100\% & 94.7678\% & 29.9574\% & 11.4302\% \\
+Comptable			& \cellcolor[gray]{0.9} 100\% & 94.7678\% & 40.0930\%			  & 11.4302\% \\
 \hline
-Atelier & \cellcolor{red} 96.5498\% & \cellcolor[gray]{0.9} 100\% & 31.6113\% & 47.9244\% \\
+Atelier				& \cellcolor{red}   96.5498\% &
+\cellcolor[gray]{0.9} 100\% & 32.2825\%			  & 47.9244\% \\
 \hline
-Stock &  74.1546\% & 70.8003\% & \cellcolor[gray]{0.9} 100\% &
-25.2908\% \\
+Stock			        & 74.1546\%		      & 70.8003\%		    & \cellcolor[gray]{0.9} 100\% & 25.2908\% \\
 \hline
-Commercial & 81.8654\% & 93.4330\% & 29.5354\% & \cellcolor[gray]{0.9} 100\% \\
+Commercial			& 81.8654\%		      & 93.4330\%
+& 30.6085\%                   & \cellcolor[gray]{0.9} 100\% \\
 \hline
     \end{tabular}
     \end{center}
     \caption{Tableau de satisfaction des différents cadres de l'entreprise en
 	fonction de la solution retenue.}
+\end{table}
 
 On voit bien que le point de mire est éloigné de l'ensemble des solutions
 acceptables : aucune solution ne semble satisfaire tous les responsables.
-\end{table}
 
 \section{Optimisation}
 Nous allons dans cette partie essayer de modifier les solutions précédentes
 pour trouver une solution qui tente de maximiser la satisfaction des différents
 responsables.
-Le but premier d'une entreprise étant de faire du profit, et la manière de
+
+Le but premier d'une entreprise étant de faire du profit, et la meilleur manière de
 faire du profit étant souvent maximiser le bénéfice, nous allons donc favoriser
 ce critère, en lui appliquant un léger coefficient.
+
 Nous allons par la même regarder l'évolution des autres critères lorsque ce
 coefficient évolue, c'est à dire recalculer les différentes métriques.
 
-\subsection{Méthodologie d'optimisation}
-Le procédé sera itératif.
+Il apparaît plausible qu'avoir un \emph{stock non optimal} peut être acceptable
+si c'est pour avoir un bénéfice plus important, dans une certaine mesure. Une
+dégradation de la satisfaction du responsable des stock sera donc moins
+pénalisant, en terme de qualité de solution, qu'une baisse dans la satisfaction
+du commercial (produire sans vendre ne sert pas à grand chose, en terme de
+rentabilité).
 
+De la même manière, produire un nombre de produit optimal peut être
+intéressant, mais cela ne doit pas aller à l'encontre du profit et de la
+mauvaise répartition de la production.
+
+Nous pouvons donc donner des coefficients aux critères :
+
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{|l||c|c|c|c|}
+\hline
+    Responsable & Comptable & Atelier & Commercial & Stocks \\
+	\hline
+    Coefficient & 1.2	    & 0.8     & 1.2	& 0.8 \\
+	\hline
+	\end{tabular}
+	\end{center}
+\caption{Coefficient associés aux critères des différents responsables}
+\end{table}
+
+\subsection{Méthodologie d'optimisation}
+Le procédé sera itératif, et partira de la solution du comptable. 
 \subsection{Résultats}
 Présenter un tableau.
