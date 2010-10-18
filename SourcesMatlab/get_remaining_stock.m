@@ -10,8 +10,8 @@ MatPremMax = [
     350 620 485
 ];
 
-produits
+produits = produits';
 
-result = MatPremMax - produits * MatPremParProduit';
+result = MatPremMax - (produits * MatPremParProduit');
 
 end
