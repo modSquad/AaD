@@ -78,6 +78,8 @@ dominent entres elles. Les couples de solutions \{D, H\}, \{E, G\} et \{C, F\}
 sont des couples de solutions équivalentes..
 Les solutions F, C et B sont dominés, elles sont donc les moins intéressantes.
 
+Hormis la solution A qui se démarque, il sera difficile d'établir un classement très juste car beaucoup de solutions sont équivalentes entre elles.
+
 \subsection{Avec pondération}
 
 Les pondérations apportés par la partie 2 sont :
@@ -88,4 +90,13 @@ Les pondérations apportés par la partie 2 sont :
 \item[g4] : 0.8
 \end{itemize}
 
-Sans changer les seuils, le graphe est légèrement modifié, mais on retrouve la solution A en tête.
+\begin{figure}[!ht]
+\includegraphics{../SourcesMatlab/electre3-2.pdf}
+\caption{Graphe des surclassement avec prise en compte des poids de chaque critère}
+\end{figure}
+
+On retrouve la solution A en tête, comme précedemment, et on voit que les positions n'ont pas changé, les surclassement sont presques identiques, seul un surclassement de G sur C est apparu.
+
+\section{Conclusion}
+
+Ici, les pondérations n'ont pas eu d'impact sur la solution choisie, et très peu sur 
