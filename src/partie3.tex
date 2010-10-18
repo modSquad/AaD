@@ -11,19 +11,19 @@ g4 : gestion du stock
 
 \section{Méthode choisie}
 
-La méthode de résolution choisie sera Électre \rmnum{3} car elle englobe les 2 précédentes.
+La méthode de résolution choisie sera Électre \Rmnum{3} car elle englobe les 2 précédentes.
 On pourras ainsi fournir au client la méthode sélectionné comme la plus optimale ainsi qu'une ou plusieurs méthodes alternatives.
 
 Pour réduire au maximum l'échéance, nous avons parallélisé au maximum les flux de travail.
 Nous avons donc dès le début du projet commencé à coder sous Matlab un
-algorithme de résolution de Électre \rmnum{3} indépendamment des résultats des 2 premières parties.
+algorithme de résolution de Électre \Rmnum{3} indépendamment des résultats des 2 premières parties.
 
 \section{Algorithme de la méthode}
 
 TODO
 
 \section{Mise en œuvre de la méthode}
-L'algorithme suivant implémente la méthode Électre \rmnum{3}. À partir de la matrice des jugements, il remet à l'échelle les notes des critères en fonction des poids.
+L'algorithme suivant implémente la méthode Électre \Rmnum{3}. À partir de la matrice des jugements, il remet à l'échelle les notes des critères en fonction des poids.
 
 \addCode{../SourcesMatlab/electreSnippet1.m}{matlab}
 
@@ -42,7 +42,9 @@ La meilleur solution apparait alors clairement en tête du graphe, et grâce à 
 \section{Solution proposée}
 
 Dans un premier temps, sans pondérer les critères, on trie les solutions pour en tirer la plus avantageuse.
-Après quelques tâtonnement, on utilise les seuils de concordance 0,7 et 0,9, et le seuil de discordance 0,4 pour générer un graphe de surclassement le plus clair possible, sans liens superflus.
+Après quelques tâtonnement, on utilise les seuils de concordance 0,7 et 0,9, et
+le seuil de discordance 0,4 pour générer un graphe de surclassement le plus
+clair possible, sans liens superflus.
 
 \begin{figure}[!ht]
 \includegraphics{../SourcesMatlab/electre3-1.pdf}
