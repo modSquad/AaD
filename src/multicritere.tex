@@ -50,7 +50,7 @@ $$
 \paragraph{Responsable des stocks}
 Pour élaborer la métrique de satisfaction pour le responsable des stocks nous
 opterons pour la fonction suivante, qui correspond à ce qui était précédemment
-annoncé dans la partie 1 (page \pageref{stocks}).
+annoncé dans la partie 1 (page \pageref{sec:stocks}). 
 
 \begin{figure}[!ht]
 \begin{center}
@@ -73,7 +73,9 @@ M_{Stocks} = \left\{
 $$
 
 Cette fonction pourrait être justifiée par le fait que plus on s’éloigne des
-valeurs admises moins le responsable des stocks est satisfait.
+valeurs admises moins le responsable des stocks est satisfait. Les valeurs
+numériques présentes dans la formules viennent des résultats de la section
+\ref{sec:stocks}.
 
 
 \paragraph{Responsable commercial}
@@ -91,8 +93,11 @@ $$
 
 \section{Utilisation}
 Les résultats seront placés dans un tableau de ce type, qui qui permettra d'un
-seul coup d'œil de voir la meilleur des solutions.
-La colonne en rouge se lira par exemple : 
+seul coup d'œil de voir la meilleur des solutions. Ce tableau a été crée en
+calculant les métrique pour chaque solution des quatre responsables.
+
+La case en rouge se lira par exemple : 
+
 \begin{center}
 «~En suivant la volonté du responsable d'atelier, le comptable aura une
 satisfaction de $96.5498\%$~»
@@ -157,15 +162,23 @@ Nous pouvons donc donner des coefficients aux critères :
 \caption{Coefficients associés aux critères des différents responsables}
 \end{table}
 
+Il faut cependant garder à l'esprit que ces coefficient devraient être ajustés
+par une plus grande étude du cas spécifique d'\textbf{Optim}, les informations
+dont nous disposons étant encore trop faibles pour effectuer une pondération
+efficace.
+
 \subsection{Méthodologie d'optimisation}
 Le procédé sera itératif, et tentera de contenter au mieux le comptable et le
 commercial (comme expliqué ci-dessus). Il s'agira donc de partir de la solution
-du comptable (celle qui maximise le bénéfice), en essayant d'améliorer la
-métrique du commercial, tout en restant dans le domaines des solutions possibles
+du responsable commercial (celle qui dispose des taux de satisfaction les plus
+haut), en essayant d'améliorer la métrique caractérisant la solution du
+responsable comptable, tout en restant dans le domaines des solutions possibles
 au vu des contraintes. Il faudra toutefois tâcher de ne pas trop dégrader les
 autres critères.
 
-
+Une solution serait de \emph{sacrifier} un peu d'équilibre dans les familles de
+produit pour fabriquer des produits plus rentables. D'après la partie 1, section 
+\ref{sec:comptable}, le produit qu'il faut fabriquer plus celui de type $E$.
 
 \subsection{Résultats}
-Présenter un tableau.
+TODO : insérer les résultats après l'algo.
