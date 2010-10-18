@@ -1,4 +1,8 @@
 function result = compute_stock(input)
+    remaining = get_remaining_stock(input);
+    
+    input = sum(input) + sum(remaining);
+    
     if input < 1192 && input > 0
         result = (input / 1192) * 100;
     elseif input > 1192 && input < 1559 

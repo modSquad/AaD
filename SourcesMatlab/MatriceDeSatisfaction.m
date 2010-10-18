@@ -5,6 +5,7 @@ PuProduit = [20,27,26,30,45,40];
 % Quantité de produits maximales, quand l'atelier est statisfait à 100%
 QttProdMax = [0 56.732 38.6928 0 182.4608 98.9216];
 
+
 %% Solution du comptable par rapport aux autres responsables.
 QttProd = [0,20.4082, 0,0,242.5,94.1837];
 BeneficeMax = QttProd * PuProduit';
@@ -14,7 +15,7 @@ S = sum(QttProd);
 NbProduitMax = sum(QttProd);
 Resultat(1,2) = (NbProduitMax / sum(QttProdMax)) * 100;
 % Stock
-Resultat(1,3) = compute_stock(S);
+Resultat(1,3) = compute_stock(QttProd);
 % Commercial
 Resultat(1,4) = (1 - abs(sum(QttProd(1:3)) - sum(QttProd(4:6))) / S) * 100;
 
@@ -26,7 +27,7 @@ BeneficeCom = QttProdMax * PuProduit';
 Resultat(2,1) = (BeneficeCom / BeneficeMax) * 100;
 % StockCom / BeneficeMax) * 100;
 % Stock
-Resultat(2,3) = compute_stock(sum(QttProdMax));
+Resultat(2,3) = compute_stock(QttProdMax);
 % Commercial
 Resultat(2,4) = (1 - abs(sum(QttProdMax(1:3)) - sum(QttProdMax(4:6))) / S) * 100;
 
@@ -48,7 +49,7 @@ Resultat(4,1) = ((QttProduitEquilibre * PuProduit') / BeneficeMax) * 100;
 % Atelier
 Resultat(4,2) = (sum(QttProduitEquilibre) / sum(QttProdMax)) * 100;
 % Stock
-Resultat(4,3) = compute_stock(sum(QttProduitEquilibre));
+Resultat(4,3) = compute_stock(QttProduitEquilibre);
 
 %% affichage resultat
 Resultat
