@@ -17,7 +17,7 @@ D = zeros(n);
 
 % APPLY NEW SCALE TO JUDGMENT MATRIX
 for i = 1:m
-    J(:,i) = ( (J(:,i) - (e/2)) * (w(i)/max(w))) + (e/2);
+    J(:,i) = ( (J(:,i) - (e/2)) * (w(i)/max(w))) + (e/2)
 end;
 
 % EVALUATE AGREEMENT-DESAGREEMENT MATRICES
@@ -59,8 +59,3 @@ fprintf(fid, '\n');
 
 fprintf(fid, '}');
 fclose(fid);
-% ASCENDING ORDER
-% TODO
-
-% DESCENDING ORDER
-% TODO

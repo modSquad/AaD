@@ -5,10 +5,10 @@ Le but de cette partie sera de sélectionner la meilleure solution en fonction d
 
 Ces 4 critères sont :
 \begin{itemize}
-\item[g1] : bénéfice
-\item[g2] : équilibre commercial
-\item[g3] : production
-\item[g4] : gestion du stock
+\item[$g_1$] : bénéfice
+\item[$g_2$] : équilibre commercial
+\item[$g_3$] : production
+\item[$g_4$] : gestion du stock
 \end{itemize}
 
 Pour réduire au maximum l'échéance, nous avons parallélisé au maximum les flux de travail.
@@ -68,6 +68,19 @@ Dans un premier temps, sans pondérer les critères, on trie les solutions pour 
 
 \subsection{Sans pondération}
 
+La matrice des jugements est la suivante :
+\begin{tabular}{r | c c c c}
+~ & $g_1$ & $g_2$ & $g_3$ & $g_4$ \\ \hline
+a & 6 & 5 & 5 & 5 \\
+b & 5 & 2 & 5 & 6 \\
+c & 3 & 4 & 6 & 3 \\
+d & 3 & 7 & 5 & 4 \\
+e & 5 & 4 & 3 & 7 \\
+f & 2 & 5 & 6 & 3 \\
+g & 5 & 4 & 3 & 7 \\
+h & 3 & 5 & 6 & 4 \\
+\end{tabular}
+
 Après quelques tâtonnement, on utilise les seuils de concordance 0,7 et 0,9, et le seuil de discordance 0,4 pour générer un graphe de surclassement le plus clair possible, sans liens superflus.
 
 \clearpage
@@ -90,13 +103,28 @@ Hormis la solution A qui se démarque, il sera difficile d'établir un classemen
 
 \subsection{Avec pondération}
 
-Les pondérations apportés par la partie 2 sont :
+Nous reprendrons les pondérations de la partie 2.
+Les pondérations sont :
 \begin{itemize}
-\item[g1] : 1.2
-\item[g2] : 1.2
-\item[g3] : 0.8
-\item[g4] : 0.8
+\item[$g_1$] : 1.2
+\item[$g_2$] : 1.2
+\item[$g_3$] : 0.8
+\item[$g_4$] : 0.8
 \end{itemize}
+
+La matrice des jugement après mise à l'echelle des notes devient :
+
+\begin{tabular}{r | c c c c}
+~ & $g_1$ & $g_2$ & $g_3$ & $g_4$ \\ \hline
+a & 6 & 5 & 5   & 5   \\
+b & 5 & 2 & 5.6 & 6.3 \\
+c & 3 & 4 & 6.3 & 3.6 \\
+d & 3 & 7 & 5   & 4.3 \\
+e & 5 & 4 & 3.6 & 7.6 \\
+f & 2 & 5 & 6.3 & 3.6 \\
+g & 5 & 4 & 3   & 7.6 \\
+h & 3 & 5 & 6.3 & 4.3 \\
+\end{tabular}
 
 \clearpage
 	
