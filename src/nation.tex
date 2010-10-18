@@ -28,39 +28,49 @@
 \definecolor{colString}{rgb}{0.6,0.1,0.1} 
 
 \usepackage{listings}
-\lstset{%configuration de listings 
-float=hbp,% 
-basicstyle=\ttfamily\small, % 
-identifierstyle=\color{colIdentifier}, % 
-keywordstyle=\color{colKeys}, % 
-stringstyle=\color{colString}, % 
-commentstyle=\color{colComments}, % 
-columns=flexible, % 
-tabsize=2, % 
-frame=trBL, % 
-frameround=tttt, % 
-extendedchars=true, % 
-showspaces=false, % 
-showstringspaces=false, % 
-numbers=left, % 
-numberstyle=\tiny, % 
-breaklines=true, % 
-breakautoindent=true, % 
-captionpos=b,% 
-xrightmargin=-1cm, % 
-xleftmargin=-1cm 
-} 
-\lstset{language=octave} 
-\lstset{commentstyle=\textit}
+
+% Permet l'ajout de code par insertion du fichier le contenant
+% Les arguments sont :
+% $1 : nom du fichier à inclure
+% $2 : le type de langage (C++, C, Java ...)
+\newcommand{\addCode}[2]{%
+
+  % Configuration de la coloration syntaxique du code
+  \definecolor{colKeys}{rgb}{0,0,1}
+  \definecolor{colIdentifier}{rgb}{0,0,0}
+  \definecolor{colComments}{rgb}{0,0.5,1}
+  \definecolor{colString}{rgb}{0.6,0.1,0.1}
+
+  % Configuration des options 
+  \lstset{%
+    language = #2,%
+    identifierstyle=\color{colIdentifier},%
+    basicstyle=\ttfamily\scriptsize, %
+    keywordstyle=\color{colKeys},%
+    stringstyle=\color{colString},%
+    commentstyle=\color{colComments},%
+    columns = flexible,%
+    %tabsize = 8,%
+    showspaces = false,%
+    numbers = left, numberstyle=\tiny,%
+    frame = single,frameround=tttt,%
+    breaklines = true, breakautoindent = true,%
+    captionpos = b,%
+    xrightmargin=10mm, xleftmargin = 15mm, framexleftmargin = 7mm,%
+  }%
+    \begin{center}
+    \lstinputlisting{#1}
+    \end{center}
+}
 
 \newcommand{\nTitle}[1]{%
-	\newpage 			%
+	\clearpage
 	\vspace*{\fill}		%
 	\begin{center}	%
 		\part{#1}		%
 	\end{center}
 	\vspace*{\fill}		%
-	\newpage			%
+	\clearpage
 }
 
 \newenvironment{nAbstract} 		%
@@ -84,3 +94,11 @@ xleftmargin=-1cm
 \newcommand{\nKeyword}[1]{\textsl{\textbf{#1}}}
 
 \graphicspath{{../SourcesMatlab/}}
+
+% Conversion nombres arabes / romain
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+\setlength{\headheight}{14pt}
