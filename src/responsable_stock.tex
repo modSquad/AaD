@@ -1,21 +1,26 @@
 \newpage
-\section{Objectif : Responsable des stocks}
+\section{Stratégie du point de vue du \textsl{Responsable des stocks}}
 \label{stocks}
-Le responsable des stocks cherche à minimiser le nombre de de produits dans
-son stock sous les contraintes définies précedemment.
+
+Le responsable des stocks cherche à minimiser la contenance du stock, \textsl{i.e.} le nombre de produits entreposés ajouté
+à la quantité de matières premières. Aucune contrainte particulière n'est ajoutée mais la recherche de l'optimum se fait
+ous les contraintes définies précedemment.
 
 \subsection{Modélisation}
 Soit $Stock(n_{i})$ le nombre d'unités de stock nécessaires pour stocker les
-produits fabriqués et la matière première nécessaire. Cette fonction est la
-somme des produits fabriqués à laquelle on ajoute la quantité de matières
-premières nécessaire à la fabrication.
-
-On suppose qu'un produit frabriqué correspond à une unité de stock.
-
-On a ainsi la formule suivante, où $n_{i}$ est la quantité de produit usiné
-(pour chaque produit $i$), et $Q_{j,i}$ est la quantité de matière première
-par produit pour chaque produit $i$ et chaque matière première $j$.
-
+produits fabriqués et les matières premières nécessaires.\\
+Cette fonction est évidemmant la somme des produits fabriqués et de la quantité de matières
+premières nécessaire à leur fabrication.\\
+~\\
+Supposons qu'\textbf{un produit fabriqué correspond à une unité de stock.}\\
+~\\
+Ainsi, soient :
+\begin{itemize}
+	\item $n_{i}$ la quantité de produits usinés (pour chaque produit $i$)
+	\item $Q_{j,i}$ la quantité de matière première par produit pour chaque produit $i$ et chaque matière première $j$.
+\end{itemize}
+~\\
+Alors :
 \begin{equation}
 	Stock(n) = \sum_{i} (n_{i} + n_{i} \times \sum_{j} Q_{j,i})
 \end{equation}
@@ -32,7 +37,8 @@ La représentation matricielle de cette fonction sera alors :
 	\times Q)
 \end{equation}
 
-Le résultat trivial est :
+\subsection{Stratégie adoptée}
+Un résultat trivial est de ne fabriquer aucun produit :
 \begin{equation}
     \begin{pmatrix}
 	0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0
@@ -40,27 +46,28 @@ Le résultat trivial est :
 \end{equation}
 
 En effet, en l'absence de production, aucun stock n'est nécessaire. Ce résultat
-n'est pas satisfaisant. Nous allons donc nous intéresser à un second critère :
-les bénéfices de l'entreprise. Pour ce faire, nous allons nous intéresser aux
-valeurs obtenues en imposant un minimum de bénéfices. En réalisant les calculs
-sur plusieurs échelons, on obtient un résultat linéaire par morceaux. Le
-raisonement adopté est similaire à celui développé dans la section
-\ref{sec:monocrit_resp_com}.
+n'est pas satisfaisant.\\
+Nous allons donc nous intéresser à un second critère : \textbf{les bénéfices de l'entreprise}.\\
+Pour ce faire, nous allons nous utiliser les résultats obtenus en imposant un minimum de bénéfices.\\
+En réalisant les calculs sur plusieurs échelons, nous obtienons un résultat linéaire par morceaux. Le
+raisonement adopté est similaire à celui développé dans la section \ref{sec:monocrit_resp_com}.
 
 \begin{figure}[!ht]
 	\includegraphics[width=\textwidth]{graphe_resp_stocks.png}
 	\caption{Graphe de l'évolution des stocks en fonction du bénéfice}
 \end{figure}
 
+\subsubsection{Interprétation} 
+De nombreuses valeurs sont équivalentes mathématiquement parlant et ne peuvent pas vraiment être départagées. 
+Les choix possibles se situent dans la deuxième partie de la courbe :
+\begin{itemize}
+	\item En dessous, les bénéfices sont trop bas.
+	\item Au dessus, les besoins de stockage augmentent beaucoup plus que les bénéfices. Nous perdons alors de vu notre
+	objectif initial, \textsl{i.e.} avoir le moins de stock possible.
+\end{itemize}
 
-\subsection{Décisions}
-De nombreuses valeurs sont équivalentes et ne peuvent être départagées selon des
-critères mathématiques. Les choix possibles se situent dans le deuxième morceau
-de courbe : en dessous, les bénéfices sont trop bas, au dessus, les besoins de
-stockage augmentent beaucoup plus que les bénéfices.
-
-On a donc une valeur comprise entre 50\% et 98\% de bénéfices. Pour 75\% du
-bénéfice maximum, on obtient le nombre de produits suivants :
+Nous obtenons donc une valeur comprise entre 50\% et 98\% de bénéfices. 
+Pour 75\% du bénéfice maximum, nous obtienons le nombre de produits suivants :
 
 \begin{equation}
 \begin{pmatrix}
@@ -72,7 +79,17 @@ bénéfice maximum, on obtient le nombre de produits suivants :
 142,146305832495 
 \end{pmatrix}
 \end{equation}
-pour une quantité d'unités en stock de 1191,75640039347.
 
+\begin{center}
+	\fbox{\textbf{Soit une quantité d'unités en stock de 1191,75640039347.}}
+\end{center}
+~\\
+Cette étude de cas nous rappelle les limite d'une stratégie basée sur l'analyse d'un seul critère. En effet, 
+en l'abscence de contraintes assez fortes, le problème devient \og indécidable\fg mathématiquement.
 
-
+C'est pourquoi nous allons combiner les 4 études réalisées pour affiner nos stratégies et obtenir une solution : 
+\begin{itemize}
+	\item Mathématiquement claire
+	\item Respectant un ensemble de contraintes plus grand, et par conséquent qui se concentre plus sur les
+	contraintes propres à l'entreprise \textbf{Optim}.
+\end{itemize}

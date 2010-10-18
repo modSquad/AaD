@@ -1,56 +1,64 @@
 \newpage
-\section{Objectif : Responsable d'atelier}
+\section{Stratégie du point de vue du \textsl{Responsable d'atelier}}
 Le responsable d'atelier cherche à maximiser le nombre d'unités (toutes
 catégories confondues) produites sous les contraintes définies précedemment.\\
-Autrement dit, seul la quantité de matières premières disponible et le temps
-maximum de travail limitera la production. Il n'intervient donc pour le moment
-aucune notion de bénéfice.
+Autrement dit, seul la quantité de matières premières disponibles et le temps
+maximum de travail limitera la production.\\
+\textbf{Il n'intervient donc pour le moment aucune notion de bénéfice.}
 
 \subsection{Modélisation}
-Soit $N$ le nombre de produits fabriqués.
+Soit $N$ le nombre total de produits fabriqués. Trivialement, c'est la somme du nombre d'unités (A), (B), (C), (D),
+(E), et (F) produites :
 
 \begin{equation}
 	N = \sum_{i = A}^{F} n_i
 \end{equation} 
 ~\\
-Par concéquent, nous obtenons la matrice suivante, qui représente la somme des
-différents produits :  
+Par concéquent la matrice suivante représente la somme des différents produits :  
 \begin{displaymath}
-M = \left(
-\begin{array}{cccccc}
-1 & 1 & 1 & 1 & 1 & 1\\
-\end{array}
-\right)
+	M = \left(
+	\begin{array}{cccccc}
+		1 & 1 & 1 & 1 & 1 & 1\\
+	\end{array}
+	\right)
 \end{displaymath}
 ~\\
-La matrice des contraintes quant à elle, n'est pas modifiée.
+La matrice des contraintes quant à elle, n'est pas modifiée. En effet, le responsable d'atelier d'\textbf{Optim} n'ajoute 
+aucune contrainte à la production.
 
-\subsection{Décisions}
-Instinctivement, on sait qu'il faudra fabriquer l'unité consommant le moins de
-\og temps machine\fg et le moins de matières premières. On peux donc penser que
-E et F seront les produits les plus fabriqués.\\
+\subsection{Stratégie adoptée}
+Instinctivement, il est évident qu'il faudra fabriquer au maximum l'unité consommant le moins de
+\og temps machine\fg et de matières premières.
+On peux donc penser que (E) et (F) seront les produits les plus fabriqués.\\
 ~\\
 En pratique, on obtient les résultats suivants :\\
 \addCode{../SourcesMatlab/atelierSnippet.m}{matlab}
 
 \begin{displaymath}
-M = \left(
-\begin{array}{c}
-0\\
-56.732\\
-38.6928\\
-0\\
-182.4608\\
-98.9216 
-\end{array}
-\right)
+	M = \left(
+	\begin{array}{c}
+		0\\
+		56.732\\
+		38.6928\\
+		0\\
+		182.4608\\
+		98.9216 
+	\end{array}
+	\right)
 \end{displaymath}
 \begin{center}
-\textbf{On peut donc, au maximum, fabriquer 376.8072 unités, tous produits
-confondus.}\\
-~\\
-\textsl{Ceci confirme bien les résultats attendus, c'est à dire
-qu'il faut donner la priorité aux produits consommant le moins de ressources.\\
-On remarque cependant qu'il est préférable d'abandonner \textsl{A} et \textsl{C}
-au profit d'autres.}
+	\fbox{On peut donc, au maximum, fabriquer 376.8072 unités, tous produits
+	confondus.}\\
+	~\\
 \end{center}
+
+\subsubsection{Interprétation}
+Encore une fois :
+\begin{itemize}
+	\item Les produits (A) et (D) doivent être abandonnés.
+	\item Le produit (E) doit être \og surproduit\fg (en 242,5 exemplaires), tout comme le produit (F), mais dans
+	une moindre mesure.
+\end{itemize}
+~\\
+Ceci confirme bien les résultats attendus, c'est à dire qu'il faut donner la priorité aux produits consommant le moins de ressources.\\
+On remarque cependant qu'il est préférable de ne pas abandonner (C) cette fois-ci.
