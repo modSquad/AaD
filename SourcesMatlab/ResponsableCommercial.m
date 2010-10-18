@@ -1,35 +1,37 @@
-function [X1,Y1,NN1,X2,Y2,NN2] = ResponsableCommercial()
-% Minimise la difference de production entre les familles des produits {A,B,C} et {D,E,F}
-% pour toutes les valeurs possibles du benefice
+function [] = ResponsableCommercial()
+%Summary of this function goes here
+%   Detailed explanation goes here
 
-%Prise en compte des constraintes generales
-FetchData; 
-
-%La precision des iterations
+FetchData();
+[ OptProduction, MaxEarnings ] = Comptable( );
+maxB = MaxEarnings;
+minB = MaxEarnings*0.80;
 steps=200;
+X=zeros(steps);
+Y1 = zeros(steps);
+Y2 = zeros(steps);
+Tmax = ones(7,1)*4800;
 
-%La fonction qu'on veut etudier et qui modelise la difference de production
-%entre les deux familles des produits
+%contraintes
+AA = [Q;T'];
+B = [S';Tmax;0];
+
 F=[ones(1,3) -ones(1,3)];
 
-%On approche F et -F de 0 et on cherche les minimums.
-[X1,Y1,NN1]=linprog_earnings(0,1,steps,F,[InfEqConstraints;-F],[InfEqValues;0]);
-[X2,Y2,NN2]=linprog_earnings(0,1,steps,-F,[InfEqConstraints;F],[InfEqValues;0]);
-
-%Les valeurs obtenus pour F
-Y1 = abs(Y1);
-%Les valeurs obtenus pour -F
-Y2 = abs(Y2);
-
-%On construit le graphe des deux fonctions pour trouver la meilleure
-%solution.
-close;
-hold on;
-plot(X1,Y1,'Color',[1 0 0]);
-plot(X2,Y2,'Color',[0 1 0]);
-xlabel('Benefice minimum impose (exprime par rapport au benefice maximum)');
-ylabel('Ecart optimal de quantite produite entre les deux familles');
-hold off;
-
-
+%on fixe le benefice sur une valeur et on commence a iterer
+Aeq=[V - ( (T * C' ./ 60)' + (A * Q) )];
+lb = zeros(6,1);
+for i = 1:steps
+    b = minB + i / steps * ( maxB - minB );
+    X(i) = b;
+    %F>0
+    N1 = linprog([ones(1,3) -ones(1,3)], [AA;  ones(1,3) -ones(1,3)], B, Aeq, b, lb);
+    Y1(i) = [ones(1,3) -ones(1,3)]*N1;
+    %-F>0
+    N2 = linprog([-ones(1,3) ones(1,3)], [AA;  -ones(1,3) +ones(1,3)], B, Aeq, b, lb);
+    Y2(i) = [-ones(1,3) ones(1,3)]*N2;
 end
+
+plot(X,Y1,'Color',[1 0 0]);
+plot(X,Y2,'Color',[0 1 0]);
+
