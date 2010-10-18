@@ -181,4 +181,32 @@ produit pour fabriquer des produits plus rentables. D'après la partie 1, sectio
 \ref{sec:comptable}, le produit qu'il faut fabriquer plus celui de type $E$.
 
 \subsection{Résultats}
-TODO : insérer les résultats après l'algo.
+Les résultats sont assez peu intéressant, du fait de la faible latitude de
+changement des solutions, et parce que les produits en grande quantité dans la
+famille 1 ne sont pas fait à partir des même matériaux que le produit à produire
+dans la famille 2 (respectivement le produit $B$ et le produit $E$).
+
+L'algorithme, assez naïf, essaie d'enlever un produit de la famille 1 pour
+essayer de rajouter un produit de type $E$.
+
+Ci dessous sont présenté les valeurs de satisfaction des quatre responsables ,
+   en enlevant du produit de type $C$, et en rajoutant un produit de type $E$.
+
+   Trois itérations sont possibles :
+   \begin{table}[ht!]
+   \begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+    Itération & Comptable & Atelier & Stocks & Commercial \\
+	\hline
+1 &   81.9901 & 93.4330 & 30.6925 & 99.4319 \\
+       \hline
+2&   82.1148 & 93.4330 & 30.7764 & 98.8639 \\
+       \hline
+  3&  82.2396 & 93.4330 & 30.8603 & 98.2958 \\
+       \hline
+
+\end{tabular}
+\end{center}
+\caption{Résultats de l'exécution d'un algorithme d'optimisation}
+\end{table}
