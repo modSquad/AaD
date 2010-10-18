@@ -4,10 +4,12 @@ Des deux parties précédentes, émergent 8 propositions de gestion de l'atelier
 Le but de cette partie sera de sélectionner la meilleure solution en fonction des 4 critères préselectionnées.
 
 Ces 4 critères sont :
-g1 : bénéfice
-g2 : équilibre commercial
-g3 : production
-g4 : gestion du stock
+\begin{itemize}
+\item[g1] : bénéfice
+\item[g2] : équilibre commercial
+\item[g3] : production
+\item[g4] : gestion du stock
+\end{itemize}
 
 \section{Méthode choisie}
 
@@ -20,7 +22,24 @@ algorithme de résolution de Électre \Rmnum{3} indépendamment des résultats d
 
 \section{Algorithme de la méthode}
 
-TODO
+La réslution des méthodes d'Électre se base sur l'utilisation de deux matrices : la matrice de concordance et la matrice de discordance.
+Ces deux matrices confirme ou infirme la superiorité entre deux solutions.
+
+Avant de calculer ces matrices, les notes données dans la matrice de jugement peuvent varié suivant les coéficients attribués aux critère. Ainsi, si un critère à un coéficient 2 fois superieur à un autre, les notes du coéficient le plus important seront répartie sur une echelle plus importante que celles du coefficient le moins important.
+
+Les matrices de concordance et de discordance peuvent être calculé à partir de cette matrice de jugement dont l'echelle des notes dépent des coéficients.
+
+Soit n, le nombre de solutions.
+Les matrices de discordances et de concordances seront de taille nxn.\\
+
+Soit la ième et la jème solution, representé par la ième ligne et la jème colonne.\\
+En chaque case \{i,j\} de la matrice de concordance, on trouve la valeur confirmant la supériorité de la solution i sur la solution j. Cette valeur est calculé comme la somme des poids des critères dans lesquels i domine j, divisé par la somme des poids de tous les critères.\\
+Dans la matrice de discordance, les valeurs infirment de la supériorité de i sur j. Elles sont calculés comme le plus grand écart positif entre les notes de j et les notes de i sur un critère donné.\\
+
+A partir de ces deux matrices et en fonction des seuils de concordances et de discordance, on peut établir le graphe de surclassement.
+Pour qu'une solution i soit supérieur à une solution j, la concordance de la supériorité de i sur j doit être superieur au seuil de concordance, et la discordance inferieur ou égal au seuil de discordance.
+
+A partir du graphe de surclassement, il devient facile d'ordonner les solutions.
 
 \section{Mise en œuvre de la méthode}
 L'algorithme suivant implémente la méthode Électre \Rmnum{3}. À partir de la matrice des jugements, il remet à l'échelle les notes des critères en fonction des poids.
@@ -41,10 +60,12 @@ La meilleur solution apparait alors clairement en tête du graphe, et grâce à 
 
 \section{Solution proposée}
 
-Dans un premier temps, sans pondérer les critères, on trie les solutions pour en tirer la plus avantageuse.
-Après quelques tâtonnement, on utilise les seuils de concordance 0,7 et 0,9, et
-le seuil de discordance 0,4 pour générer un graphe de surclassement le plus
-clair possible, sans liens superflus.
+Dans un premier temps, sans pondérer les critères, on trie les solutions pour en tirer la plus avantageuse. Dans un second temps, on prendras en compte les poids des critères apporté par les résultats de la seconde partie.
+
+\subsection{Sans pondération}
+
+Après quelques tâtonnement, on utilise les seuils de concordance 0,7 et 0,9, et le seuil de discordance 0,4 pour générer un graphe de surclassement le plus clair possible, sans liens superflus.
+>>>>>>> fad83c889cbcb75be0f8ae83ac2328554996c969:src/partie3.tex
 
 \begin{figure}[!ht]
 \includegraphics{../SourcesMatlab/electre3-1.pdf}
@@ -58,5 +79,14 @@ dominent entres elles. Les couples de solutions \{D, H\}, \{E, G\} et \{C, F\}
 sont des couples de solutions équivalentes..
 Les solutions F, C et B sont dominés, elles sont donc les moins intéressantes.
 
+\subsection{Avec pondération}
 
-Dans un second temps, en prenant en compte les poids apporté par l'étude des 2 première parties.
+Les pondérations apportés par la partie 2 sont :
+\begin{itemize}
+\item[g1] : 1.2
+\item[g2] : 1.2
+\item[g3] : 0.8
+\item[g4] : 0.8
+\end{itemize}
+
+Sans changer les seuils, le graphe est légèrement modifié, mais on retrouve la solution A en tête.
