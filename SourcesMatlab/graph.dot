@@ -8,12 +8,14 @@ F;
 G;
 H;
 
+A -> B;
 E -> B;
 G -> B;
 A -> C;
 D -> C;
 E -> C;
 F -> C;
+G -> C;
 H -> C;
 A -> D;
 H -> D;
