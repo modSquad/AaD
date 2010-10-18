@@ -2,9 +2,10 @@
 \nTitle{Programmation linéaire multicritère}
 
 \section{Objectifs}
-L'objectif est de trouver une solution de compromis entre les différents responsables.
-Pour trouver une telle solution nous serons amenés à utiliser la programmation multicritère (\emph{PLM}).
-Auparavant, dans la partie 1, nous avons trouvé un optimum pour chaque
+L'objectif est de trouver une solution de compromis entre les différents responsables.\\
+Pour trouver une telle solution nous serons amenés à utiliser la programmation multicritère (\emph{PLM}).\\
+~\\
+Dans la première partie du rapport, nous avons trouvé un optimum pour chaque
 responsable indépendam\-ment, ce qui nous conduit à un point de mire. Dans un
 monde parfait, ce point de mire respecterait les contraintes de chaque
 responsable. Nous devons donc voir si tel est le cas. 
@@ -23,8 +24,8 @@ satisfaction à tout le monde, par exemple en utilisant une moyenne pondérée,
 dont la pondération sera basée sur \emph{l'importance} de chaque critère.
 
 \section{Affinement de la solution}
-La solution trouvée précédemment peut sûrement être optimisée. Il peut être
-intéressant de perdre dans un critère, si cela nous fait gagner beaucoup dans
+Les solutions trouvées précédemment peuvent certainement être optimisées. Il peut alors être
+intéressant de \fg perdre\og dans un critère, si cela nous fait \og gagner\fg beaucoup dans
 un autre critère, d'autant plus si ce second critère est jugé plus
 \emph{intéressant} que le premier.
 
@@ -76,7 +77,7 @@ $$
 Cette fonction pourrait être justifiée par le fait que plus on s’éloigne des
 valeurs admises moins le responsable des stocks est satisfait. Les valeurs
 numériques présentes dans la formules viennent des résultats de la section
-\ref{sec:stocks}.
+\ref{sec:stocks} et sont visibles dans le graphique ci-dessous :
 
 
 \paragraph{Responsable commercial}
@@ -131,13 +132,13 @@ responsables.
 
 Le but premier d'une entreprise étant de faire du profit, et les meilleur 
 manière de faire du profit étant souvent maximiser le bénéfice et d'avoir une
-bonne politique commerciale, nous allons donc favoriser ces critère (bénéfice et
+bonne politique commerciale, nous allons donc favoriser ces critères (bénéfice et
 équilibrage des solutions), en leur appliquant un léger coefficient.
 
 Nous allons par la même regarder l'évolution des autres critères lorsque ce
 coefficient évolue, c'est à dire recalculer les différentes métriques.
 
-Il apparaît plausible qu'avoir un \emph{stock non optimal} peut être acceptable
+Il apparaît plausible qu'avoir un \emph{stock non optimal} puisse être acceptable
 si c'est pour avoir un bénéfice plus important, dans une certaine mesure. Une
 dégradation de la satisfaction du responsable des stock sera donc moins
 pénalisante, en terme de qualité de solution, qu'une baisse dans la satisfaction
@@ -169,9 +170,12 @@ dont nous disposons étant encore trop faibles pour effectuer une pondération
 efficace.
 
 \subsection{Méthodologie d'optimisation}
-Le procédé sera itératif, et tentera de contenter au mieux le comptable et le
-commercial (comme expliqué ci-dessus). Il s'agira donc de partir de la solution
-du responsable commercial (celle qui dispose des taux de satisfaction les plus
+Le procédé est itératif, \textsl{i.e.} que nous allons, à chaque exécution de l'algorithme, nous rapproche,
+de la solution, et tentera de contenter au mieux le comptable et le
+commercial (comme expliqué ci-dessus).\\
+~\\			  
+Il s'agira donc de \textbf{partir de la solution du responsable commercial}
+(celle qui dispose des taux de satisfaction les plus
 haut), en essayant d'améliorer la métrique caractérisant la solution du
 responsable comptable, tout en restant dans le domaines des solutions possibles
 au vu des contraintes. Il faudra toutefois tâcher de ne pas trop dégrader les
@@ -182,11 +186,12 @@ produit pour fabriquer des produits plus rentables. D'après la partie 1, sectio
 \ref{sec:comptable}, le produit qu'il faut fabriquer plus celui de type $E$.
 
 \subsection{Résultats}
-Les résultats sont assez peu intéressant, du fait de la faible latitude de
-changement des solutions, et parce que les produits en grande quantité dans la
+Etonnament, après le déroulement de l'aglorithme, les résultats n'ont pas apporté autant d'amélioration que prévu,
+du fait de la faible latitude de changement des solutions, et parce que les produits en grande quantité dans la
 famille 1 ne sont pas fait à partir des même matériaux que le produit à produire
-dans la famille 2 (respectivement le produit $B$ et le produit $E$).
-
+dans la famille 2 (respectivement le produit $B$ et le produit $E$). Nous avion donc une solution \textsl{à priori} 
+déjà proche d'un résultat optimal.\\
+~\\
 L'algorithme, assez naïf, essaie d'enlever un produit de la famille 1 pour
 essayer de rajouter un produit de type $E$.
 
@@ -212,5 +217,5 @@ Ci dessous sont présenté les valeurs de satisfaction des quatre responsables ,
 \caption{Résultats de l'exécution d'un algorithme d'optimisation}
 \end{table}
 
-Nous choisirons donc la solution 3, qui est la plus équilibrée, à partir de la
-solution de départ que nous avons choisis.
+\fbox{\textbf{Nous choisirons donc la solution 3, qui est la plus équilibrée, à partir de la
+solution de départ que nous avons choisis.}}
