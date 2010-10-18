@@ -1,4 +1,13 @@
 digraph G {
+A;
+B;
+C;
+D;
+E;
+F;
+G;
+H;
+
 E -> B;
 G -> B;
 A -> C;
@@ -19,12 +28,8 @@ E -> G;
 A -> H;
 D -> H;
 
-A;
-B;
-C;
-D;
-E;
-F;
-G;
-H;
+H -> C[style = "dashed"];
+H -> F[style = "dashed"];
+E -> G[style = "dashed"];
+
 }
