@@ -13,20 +13,19 @@ G -> B;
 A -> C;
 D -> C;
 E -> C;
+F -> C;
 G -> C;
 H -> C;
+A -> D;
+H -> D;
 A -> E;
 G -> E;
 A -> F;
+C -> F;
 D -> F;
 H -> F;
 A -> G;
 E -> G;
 A -> H;
 D -> H;
-
-H -> C[style = "dashed"];
-H -> F[style = "dashed"];
-E -> G[style = "dashed"];
-
 }
