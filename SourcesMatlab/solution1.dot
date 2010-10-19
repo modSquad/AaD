@@ -28,8 +28,5 @@ E -> G;
 A -> H;
 D -> H;
 
-H -> C[style = "dashed"];
-H -> F[style = "dashed"];
-E -> G[style = "dashed"];
 
 }

@@ -70,7 +70,7 @@ Dans un premier temps, sans pondérer les critères, on trie les solutions pour 
 
 \subsection{Sans pondération}
 
-La matrice des jugements est la suivante :
+La matrice des jugements est la suivante :\\
 \begin{center}
 \begin{tabular}{r | c c c c}
 ~ & $g_1$ & $g_2$ & $g_3$ & $g_4$ \\ \hline
@@ -78,14 +78,16 @@ a & 6 & 5 & 5 & 5 \\
 b & 5 & 2 & 5 & 6 \\
 c & 3 & 4 & 6 & 3 \\
 d & 3 & 7 & 5 & 4 \\
-e & 5 & 4 & 3 & 7 \\
+e & 5 & 4 & 3 & 9 \\
 f & 2 & 5 & 6 & 3 \\
 g & 5 & 4 & 3 & 7 \\
 h & 3 & 5 & 6 & 4 \\
 \end{tabular}
 \end{center}
 
-Après quelques tâtonnement, on utilise les seuils de concordance 0,7 et 0,9, et le seuil de discordance 0,4 pour générer un graphe de surclassement le plus clair possible, sans liens superflus.
+On suppose que l'echelle des note est de 0 à 10.\\
+
+Après quelques tâtonnement, on utilise les seuils de concordance 0,6 et 0,9, et le seuil de discordance 0,4 pour générer un graphe de surclassement le plus clair possible, sans liens superflus.
 
 \clearpage
 
@@ -114,7 +116,7 @@ Reprendrons les pondérations de la partie 2 :
 	\item $g_4$ : 0.8
 \end{itemize}
 
-La matrice des jugement après mise à l'echelle des notes devient donc :
+La matrice des jugement après mise à l'echelle des notes devient :
 
 \begin{center}
 	\begin{tabular}{r | c c c c}
